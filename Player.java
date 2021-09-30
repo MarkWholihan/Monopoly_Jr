@@ -7,6 +7,6 @@ Due date: 10-10-2021 by 11:59pm
 public class Player {
 	String name;
 	int cash;
-	
+	//this is a comment
 
 }
