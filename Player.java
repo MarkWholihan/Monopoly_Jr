@@ -3,23 +3,26 @@ Course: COSC 211, Fall 2021
 Project#: 1 Monopoly Jr
 Due date: 10-10-2021 by 11:59pm
  */
+import java.util.*;
 
 public class Player {
 	private String name;
 	private int cash;
-	private int loc;
+	private int location;
 	private Boolean inJail;
-	private ArrayList<Card> cards;
+	public Boolean getOutOfJailCard;
+	private ArrayList<Chance> cards;
+	private ArrayList<Property> ownedProperties;
 	public static final int spaceTotal = 24;
 	
 	// creates an object of a player
 	public Player(String name) {
 		name = this.name;
 		cash = 16;
-		loc = 0;
+		location = 0;
 		getOutOfJailCard = false;
-		cards = new ArrayList<Card>();
-		ownedProps = new ArrayList<Property>();
+		cards = new ArrayList<Chance>();
+		ownedProperties = new ArrayList<Property>();
 	}
 	
 	// returns players name
@@ -29,18 +32,18 @@ public class Player {
 	
 	// moves players location
 	public int move(int spaces) {
-		loc = (spaces + loc) % spaceTotal;
-		return loc;
+		location = (spaces + location) % spaceTotal;
+		return location;
 	}
 	
 	// returns a players location
 	public int getLoc() {
-		return loc;
+		return location;
 	}
 	
 	// sets a players location
 	public void setLoc(int location) {
-		loc = location;
+		location = this.location;
 	}
 	
 	// returns players cash amount
@@ -59,19 +62,19 @@ public class Player {
 	}
 	
 	// pays another player
-	public void payPlayer(Player pay, int amount) {
-		payPlayer(amount);
-		pay.addCash(amount);
-	}
+	//public void payPlayer(Player pay, int amount) {
+	//	payPlayer(amount);
+	//	pay.addCash(amount);
+	//}
 	
 	// adds a property to the player
 	public void addProperty(Property property) {
-		ownedProps.add(property);
+		ownedProperties.add(property);
 	}
 	
 	// returns players properties
 	public ArrayList<Property> getProperties() {
-		return ownedProps;
+		return ownedProperties;
 	}
 	
 	// returns true if player has get out of jail free card
@@ -88,13 +91,13 @@ public class Player {
 	}
 	
 	// uses getOutOfJailCard
-	public void useCard(Card goojf) {
+	public void useCard(Chance goojf) {
 		cards.add(goojf);
 		getOutOfJailCard = true;
 	}
 	
 	// player is in jail
-	public void playerInJail() {
+	public Boolean playerInJail() {
 		return inJail;
 	}
 }
