@@ -8,23 +8,18 @@ public class Player {
 	private String name;
 	private int cash;
 	private int loc;
-	private ArrayList<Card> cards;
 	private Boolean inJail;
+	private ArrayList<Card> cards;
 	public static final int spaceTotal = 24;
 	
-	// creates an object of Player
-	public Player(String name, int num) {
+	// creates an object of a player
+	public Player(String name) {
 		name = this.name;
 		cash = 16;
-		ownedProps = new ArrayList<Property>();
 		loc = 0;
 		getOutOfJailCard = false;
 		cards = new ArrayList<Card>();
-	}
-	
-	// returns the player number
-	public int getNumber() {
-		return number;
+		ownedProps = new ArrayList<Property>();
 	}
 	
 	// returns players name
@@ -32,9 +27,8 @@ public class Player {
 		return name;
 	}
 	
-	// moves Player location
+	// moves players location
 	public int move(int spaces) {
-		int loc1 = getLoc();
 		loc = (spaces + loc) % spaceTotal;
 		return loc;
 	}
@@ -54,17 +48,17 @@ public class Player {
 		return cash;
 	}
 	
-	// adds cash
+	// adds cash to the player
 	public void addCash(int cash) {
 		cash += this.cash;
 	}
 	
-	// subtracts cash
+	// subtracts cash from the player
 	public void subtractCash(int cash) {
 		cash -= this.cash;
 	}
 	
-	// pays another Player
+	// pays another player
 	public void payPlayer(Player pay, int amount) {
 		payPlayer(amount);
 		pay.addCash(amount);
