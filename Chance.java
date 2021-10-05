@@ -5,6 +5,12 @@ Due date: 10-10-2021 by 11:59pm
  */
 
 public class Chance {
+	String cards;
+	
+	public Chance() {
+		String[] arr = new String[20];
+		arr[0] = "Randomly choose one of the 20 CHANCE cards\n";
+	}
 	
 	public void OnLanding() {
 		//update the player’s cash balance,
