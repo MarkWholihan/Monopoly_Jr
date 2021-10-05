@@ -13,7 +13,7 @@ public class Player {
 	public Boolean getOutOfJailCard;
 	private ArrayList<Chance> cards;
 	private ArrayList<Property> ownedProperties;
-	public static final int spaceTotal = 24;
+	public static final int SPACE_TOTAL = 24;
 
 	// constructs an object of player
 	public Player(String name) {
@@ -34,12 +34,12 @@ public class Player {
 	
 	// returns players name
 	public String getName() {
-		return this.name;
+		return name;
 	}
 
 	// moves players location
 	public int move(int spaces) {
-		location = (spaces + location) % spaceTotal;
+		location = (spaces + location) % SPACE_TOTAL;
 		return location;
 	}
 
@@ -50,7 +50,7 @@ public class Player {
 
 	// sets a players location
 	public void setLoc(int location) {
-		location = this.location;
+		this.location = location;
 	}
 
 	// returns players cash amount
