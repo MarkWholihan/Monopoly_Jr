@@ -8,8 +8,10 @@ public class Chance extends BoardSpace {
 	
 	public Chance() {
 		super("Chance");
-	}	
-
+		String[] arr = new String[20];
+		arr[0] = "Randomly choose one of the 20 CHANCE cards\n";
+	}
+	
 	public void OnLanding() {
 		//update the player’s cash balance,
 		
