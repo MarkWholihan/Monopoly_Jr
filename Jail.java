@@ -4,7 +4,15 @@ Project#: 1 Monopoly Jr
 Due date: 10-10-2021 by 11:59pm
  */
 
-public class Jail {
+public class Jail extends BoardSpace {
+	
+	public Jail() {
+		super("Jail");
+	}
+	
+	
+	// if "inJail" = true, keep player in jail
+	
 	
 	public void OnLanding() {
 		//update the player’s cash balance,

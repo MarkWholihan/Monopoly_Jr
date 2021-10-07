@@ -1,13 +1,13 @@
-/*  Programmers: Mark Wholihan & ________
+/*  Programmers: Mark Wholihan & Alder Yang
 Course: COSC 211, Fall 2021
 Project#: 1 Monopoly Jr
 Due date: 10-10-2021 by 11:59pm
  */
 
-public class Chance {
-	String cards;
+public class Chance extends BoardSpace {
 	
 	public Chance() {
+		super("Chance");
 		String[] arr = new String[20];
 		arr[0] = "Randomly choose one of the 20 CHANCE cards\n";
 	}

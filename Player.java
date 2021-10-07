@@ -1,8 +1,9 @@
-/*  Programmers: Mark Wholihan & Alder
+/*  Programmers: Mark Wholihan & Alder Yang
 Course: COSC 211, Fall 2021
 Project#: 1 Monopoly Jr
 Due date: 10-10-2021 by 11:59pm
  */
+
 import java.util.*;
 
 public class Player {
@@ -25,10 +26,12 @@ public class Player {
 		ownedProperties = new ArrayList<Property>();
 	}
 
-	//  returns information about this player as a string
+	// returns information about this player as a string
 	public String toString() {
-		String result = ("Name: " + name + "\nCash: " + cash + "\nLocation: " + location + "\nHas get out of jail free card? " + getOutOfJailCard + "\nProperties owned: " + ownedProperties);
-
+		String result = ("Name: " + name + "\nCash: " + cash + "\nLocation: "
+				+ location + "\nHas get out of jail free card? "
+				+ getOutOfJailCard + "\nProperties owned: "
+				+ ownedProperties);
 		return result;
 	}
 	
@@ -37,6 +40,8 @@ public class Player {
 		return name;
 	}
 
+
+// LOCATION CONTROL ----------------------------------
 	// moves players location
 	public int move(int spaces) {
 		location = (spaces + location) % SPACE_TOTAL;
@@ -53,6 +58,8 @@ public class Player {
 		this.location = location;
 	}
 
+	
+// MONEY CONTROL -------------------------------------
 	// returns players cash amount
 	public int getCash() {
 		return cash;
@@ -74,6 +81,8 @@ public class Player {
 		payee.addCash(amount);
 	}
 
+	
+// PROPERTY CONTROL ----------------------------------
 	// adds a property to the player
 	public void addProperty(Property property) {
 		ownedProperties.add(property);
@@ -84,6 +93,8 @@ public class Player {
 		return ownedProperties;
 	}
 
+	
+// JAIL CONTROL --------------------------------------
 	// returns true if player has get out of jail free card
 	public Boolean getOutOfJailFreeCard() {
 		if(cards.size() > 0) {
