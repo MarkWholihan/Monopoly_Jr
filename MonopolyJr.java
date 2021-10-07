@@ -8,11 +8,13 @@ import java.util.*;
 
 public class MonopolyJr {
 	public static void main(String [] args) {
-		int roll = (int)(Math.random() * 6) + 1;
+		
 		Player playerOne = new Player("Toy Boat");
 		Player playerTwo = new Player("Toy Car");
 		Player playerThree = new Player("Little Hazel");
 		Player playerFour = new Player("Little Scottie");
+		
+		
 
 		// ArrayList of Player objects
 		ArrayList<Player> players = new ArrayList<Player>();
@@ -22,21 +24,27 @@ public class MonopolyJr {
 		players.add(playerFour);
 
 		// test move player
-		playerOne.move(roll);
+		playerOne.move(roll());
 		System.out.println(playerOne + "\n");
 
-		playerTwo.move(roll);
+		playerTwo.move(roll());
 		System.out.println(playerTwo + "\n");
 
-		playerThree.move(roll);
+		playerThree.move(roll());
 		System.out.println(playerThree + "\n");
 
-		playerFour.move(roll);
+		playerFour.move(roll());
 		System.out.println(playerFour + "\n");
+		
+		playerOne.move(roll());
+		System.out.println(playerOne + "\n");
 
 
 	}
 
+	public static int roll() {
+		return (int)(Math.random() * 6) + 1;
+	}
 
 	/** System.out.println("This is the starting players information\n");
 
