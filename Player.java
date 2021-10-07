@@ -42,8 +42,10 @@ public class Player {
 
 
 // LOCATION CONTROL ----------------------------------
+	
 	// moves players location
 	public int move(int spaces) {
+		
 		location = (spaces + location) % SPACE_TOTAL;
 		return location;
 	}
