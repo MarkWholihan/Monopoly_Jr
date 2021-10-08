@@ -47,6 +47,11 @@ public class Player {
 	public int move(int spaces) {
 		
 		location = (spaces + location) % SPACE_TOTAL;
+		if (location == 1) {
+			System.out.println("this works");
+			ownedProperties.add(GameBoard.Chicfila);
+			
+		}
 		return location;
 	}
 

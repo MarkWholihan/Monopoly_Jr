@@ -16,22 +16,22 @@ public class GameBoard {
 	Jail Jail = new Jail();
 	
 	// properties
-	Property Chicfila = new Property("Chic-fil-a", 1, "Brown");
-	Property LittleCaesars = new Property("Little Caesar's", 1, "Brown");
-	Property DairyQueen = new Property("Dairy Queen", 2, "Cyan");
-	Property ChocoFactory = new Property("Choco Factory", 2, "Cyan");
-	Property HalleLibrary = new Property("Halle Library", 2, "Pink");
-	Property YpsiMuseum = new Property("Ypsi Museum", 2, "Pink");
-	Property FrogIslandPark = new Property("Frog Island Park", 3, "Orange");
-	Property FordLake = new Property("Ford Lake", 3, "Orange");
-	Property PinballPetes = new Property("Pinball Pete's", 3, "Red");
-	Property MJR = new Property("MJR Theater", 3, "Red");
-	Property Petco = new Property("Petco", 3, "Yellow");
-	Property ToysRUs = new Property("Toys R Us", 3, "Yellow");
-	Property Bowlero = new Property("Bowlero", 4, "Green");
-	Property DetroitZoo = new Property("Detroit Zoo", 4, "Green");
-	Property Starbucks = new Property("Starbucks", 5, "Blue");
-	Property AppleStore = new Property("Apple Store", 5, "Blue");
+	static Property Chicfila = new Property("Chic-fil-a", 1, "Brown");
+	static Property LittleCaesars = new Property("Little Caesar's", 1, "Brown");
+	static Property DairyQueen = new Property("Dairy Queen", 2, "Cyan");
+	static Property ChocoFactory = new Property("Choco Factory", 2, "Cyan");
+	static Property HalleLibrary = new Property("Halle Library", 2, "Pink");
+	static Property YpsiMuseum = new Property("Ypsi Museum", 2, "Pink");
+	static Property FrogIslandPark = new Property("Frog Island Park", 3, "Orange");
+	static Property FordLake = new Property("Ford Lake", 3, "Orange");
+	static Property PinballPetes = new Property("Pinball Pete's", 3, "Red");
+	static Property MJR = new Property("MJR Theater", 3, "Red");
+	static Property Petco = new Property("Petco", 3, "Yellow");
+	static Property ToysRUs = new Property("Toys R Us", 3, "Yellow");
+	static Property Bowlero = new Property("Bowlero", 4, "Green");
+	static Property DetroitZoo = new Property("Detroit Zoo", 4, "Green");
+	static Property Starbucks = new Property("Starbucks", 5, "Blue");
+	static Property AppleStore = new Property("Apple Store", 5, "Blue");
 	
 	
 	// establish array for game board
