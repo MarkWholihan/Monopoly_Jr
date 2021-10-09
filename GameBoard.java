@@ -9,29 +9,34 @@ import java.util.ArrayList;
 public class GameBoard {
 	
 	// import board spaces as objects
-	Go Go = new Go();
-	Chance Chance = new Chance();
-	FreeParking FreeParking = new FreeParking();
-	GoToJail GoToJail = new GoToJail();
-	Jail Jail = new Jail();
+	public static Go Go = new Go();
+	public static Chance Chance = new Chance();
+	public static FreeParking FreeParking = new FreeParking();
+	public static GoToJail GoToJail = new GoToJail();
+	public static Jail Jail = new Jail();
 	
 	// properties
-	static Property Chicfila = new Property("Chic-fil-a", 1, "Brown");
-	static Property LittleCaesars = new Property("Little Caesar's", 1, "Brown");
-	static Property DairyQueen = new Property("Dairy Queen", 2, "Cyan");
-	static Property ChocoFactory = new Property("Choco Factory", 2, "Cyan");
-	static Property HalleLibrary = new Property("Halle Library", 2, "Pink");
-	static Property YpsiMuseum = new Property("Ypsi Museum", 2, "Pink");
-	static Property FrogIslandPark = new Property("Frog Island Park", 3, "Orange");
-	static Property FordLake = new Property("Ford Lake", 3, "Orange");
-	static Property PinballPetes = new Property("Pinball Pete's", 3, "Red");
-	static Property MJR = new Property("MJR Theater", 3, "Red");
-	static Property Petco = new Property("Petco", 3, "Yellow");
-	static Property ToysRUs = new Property("Toys R Us", 3, "Yellow");
-	static Property Bowlero = new Property("Bowlero", 4, "Green");
-	static Property DetroitZoo = new Property("Detroit Zoo", 4, "Green");
-	static Property Starbucks = new Property("Starbucks", 5, "Blue");
-	static Property AppleStore = new Property("Apple Store", 5, "Blue");
+	public static Property go = new Property("GO", 0, "");
+	public static Property jail = new Property("JAIL", 0, "");
+	public static Property goToJail = new Property("GO TO JAIL", 0, "");
+	public static Property chance = new Property("CHANCE", 0, "");
+	public static Property freeParking = new Property("FREE PARKING", 0, "");
+	public static Property Chicfila = new Property("Chic-fil-a", 1, "Brown");
+	public static Property LittleCaesars = new Property("Little Caesar's", 1, "Brown");
+	public static Property DairyQueen = new Property("Dairy Queen", 2, "Cyan");
+	public static Property ChocoFactory = new Property("Choco Factory", 2, "Cyan");
+	public static Property HalleLibrary = new Property("Halle Library", 2, "Pink");
+	public static Property YpsiMuseum = new Property("Ypsi Museum", 2, "Pink");
+	public static Property FrogIslandPark = new Property("Frog Island Park", 3, "Orange");
+	public static Property FordLake = new Property("Ford Lake", 3, "Orange");
+	public static Property PinballPetes = new Property("Pinball Pete's", 3, "Red");
+	public static Property MJR = new Property("MJR Theater", 3, "Red");
+	public static Property Petco = new Property("Petco", 3, "Yellow");
+	public static Property ToysRUs = new Property("Toys R Us", 3, "Yellow");
+	public static Property Bowlero = new Property("Bowlero", 4, "Green");
+	public static Property DetroitZoo = new Property("Detroit Zoo", 4, "Green");
+	public static Property Starbucks = new Property("Starbucks", 5, "Blue");
+	public static Property AppleStore = new Property("Apple Store", 5, "Blue");
 	
 	
 	// establish array for game board
