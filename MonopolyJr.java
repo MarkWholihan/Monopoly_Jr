@@ -10,39 +10,25 @@ public class MonopolyJr {
 	public static void main(String [] args) {
 		
 		intro();
-		rules();
-		
-		Player playerOne = new Player("Toy Boat");
-		Player playerTwo = new Player("Toy Car");
-		Player playerThree = new Player("Little Hazel");
-		Player playerFour = new Player("Little Scottie");
-		
-		
-
-		// ArrayList of Player objects
-		ArrayList<Player> players = new ArrayList<Player>();
-		players.add(playerOne);
-		players.add(playerTwo);
-		players.add(playerThree);
-		players.add(playerFour);
-
+		//rules();
 		// test move player
-		playerOne.move(roll());
-		System.out.println(playerOne + "\n");
-
-		playerTwo.move(roll());
-		System.out.println(playerTwo + "\n");
-
-		playerThree.move(roll());
-		System.out.println(playerThree + "\n");
-
-		playerFour.move(roll());
-		System.out.println(playerFour + "\n");
 		
-		playerOne.move(roll());
-		System.out.println(playerOne + "\n");
+		Player.playerOne.move(roll());
+		System.out.println(Player.playerOne + "\n");
 
+		Player.playerTwo.move(roll());
+		System.out.println(Player.playerTwo + "\n");
 
+		Player.playerThree.move(roll());
+		System.out.println(Player.playerThree + "\n");
+
+		Player.playerFour.move(roll());
+		System.out.println(Player.playerFour + "\n");
+		
+		for (int i = 0; i < 3; i++) {
+			Player.playerOne.move(roll());
+			System.out.println(Player.playerOne + "\n");
+		}
 	}
 
 	public static int roll() {
@@ -51,6 +37,10 @@ public class MonopolyJr {
 	
 	public static void intro() {
 		System.out.println("Welcome to Monopoly Jr.! ");
+		System.out.println("This is the starting players information\n");
+
+		System.out.println(Player.playerOne + " \n\n" + Player.playerTwo + " \n\n" + Player.playerThree + " \n\n" + Player.playerFour);
+		System.out.println();
 	}
 	
 	public static void rules() {
@@ -200,9 +190,4 @@ public class MonopolyJr {
 				+ "2. The other players all count their money, and the player with the most money WINS!\n"
 				+ "3. Tie? Count how much your properties are worth and add it on to your wealth!");
 	}
-
-	/** System.out.println("This is the starting players information\n");
-
-		System.out.println(playerOne + " \n\n" + playerTwo + " \n\n" + playerThree + " \n\n" + playerFour);
-		System.out.println(); */
 }
