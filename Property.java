@@ -20,6 +20,15 @@ public class Property extends BoardSpace {
 		cost = pCost;
 		color = pColor;
 	}
+	
+	// returns information about this player as a string
+	public String toString() {
+		String result = ("Name: " + name + "\nCost: " + cost + "\nColor: "
+				+ color + "\nIs owned? "
+				+ owned + "\nOwner: "
+				+ owner);
+		return result;
+	}
 
 
 
@@ -38,6 +47,7 @@ public class Property extends BoardSpace {
 
 	// do things when player lands on this space
 	public void OnLanding(Player currentPlayer, Property currentProperty) {
+		
 		// ArrayList of Property objects
 		ArrayList<Property> unownedProperties = new ArrayList<>();
 		unownedProperties.add(GameBoard.Chicfila);
@@ -56,6 +66,7 @@ public class Property extends BoardSpace {
 		unownedProperties.add(GameBoard.DetroitZoo);
 		unownedProperties.add(GameBoard.Starbucks);
 		unownedProperties.add(GameBoard.AppleStore);
+		
 		//update the player’s cash balance,
 		//update the player’s position on the board, and
 		//if class is a property, update the state of the property (owned/unowned, and owner).
@@ -67,6 +78,7 @@ public class Property extends BoardSpace {
 					currentPlayer.addProperty(currentProperty);
 					unownedProperties.remove(i);
 					owned = true;
+					owner = currentPlayer;
 				}
 			} else {
 				System.out.println("GameOVER");
