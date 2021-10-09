@@ -10,26 +10,40 @@ public class Player {
 	private String name;
 	private int cash;
 	private int location;
+	public static Property currentLocation;
 	private Boolean inJail;
 	public Boolean getOutOfJailCard;
 	private ArrayList<Chance> cards;
 	private ArrayList<Property> ownedProperties;
-	public static final int SPACE_TOTAL = 24;
+	public static final int SPACE_TOTAL = 23;
+	public static Player playerOne = new Player("Toy Boat");
+	public static Player playerTwo = new Player("Toy Car");
+	public static Player playerThree = new Player("Little Hazel");
+	public static Player playerFour = new Player("Little Scottie");
 
 	// constructs an object of player
 	public Player(String name) {
 		this.name = name;
 		cash = 16;
-		location = 0;
+		currentLocation = GameBoard.go;
 		getOutOfJailCard = false;
 		cards = new ArrayList<Chance>();
 		ownedProperties = new ArrayList<Property>();
+	}
+	
+	// ArrayList of Player objects
+	public void playerArray() {	
+	ArrayList<Player> players = new ArrayList<Player>();
+		players.add(playerOne);
+		players.add(playerTwo);
+		players.add(playerThree);
+		players.add(playerFour);
 	}
 
 	// returns information about this player as a string
 	public String toString() {
 		String result = ("Name: " + name + "\nCash: " + cash + "\nLocation: "
-				+ location + "\nHas get out of jail free card? "
+				+ currentLocation + "\nHas get out of jail free card? "
 				+ getOutOfJailCard + "\nProperties owned: "
 				+ ownedProperties);
 		return result;
@@ -47,17 +61,42 @@ public class Player {
 	public int move(int spaces) {
 		
 		location = (spaces + location) % SPACE_TOTAL;
-		if (location == 1) {
-			System.out.println("this works");
-			ownedProperties.add(GameBoard.Chicfila);
-			
-		}
+		
+		System.out.println("this works");
 		return location;
 	}
+	
 
 	// returns a players location
-	public int getLoc() {
-		return location;
+	public Property getLoc() {
+		switch (location) {
+		case 0: currentLocation = GameBoard.go; return currentLocation;
+		case 1: currentLocation = GameBoard.Chicfila; break;
+		case 2: currentLocation = GameBoard.LittleCaesars; break;
+		case 3: currentLocation = GameBoard.chance; break;
+		case 4: currentLocation = GameBoard.DairyQueen; break;
+		case 5: currentLocation = GameBoard.ChocoFactory; break;
+		case 6: currentLocation = GameBoard.jail; break;
+		case 7: currentLocation = GameBoard.HalleLibrary; break;
+		case 8: currentLocation = GameBoard.YpsiMuseum; break;
+		case 9: currentLocation = GameBoard.chance; break;
+		case 10: currentLocation = GameBoard.FrogIslandPark; break;
+		case 11: currentLocation = GameBoard.FordLake; break;
+		case 12: currentLocation = GameBoard.freeParking; break;
+		case 13: currentLocation = GameBoard.PinballPetes; break;
+		case 14: currentLocation = GameBoard.MJR; break;
+		case 15: currentLocation = GameBoard.chance; break;
+		case 16: currentLocation = GameBoard.Petco; break;
+		case 17: currentLocation = GameBoard.ToysRUs; break;
+		case 18: currentLocation = GameBoard.goToJail; break;
+		case 19: currentLocation = GameBoard.Bowlero; break;
+		case 20: currentLocation = GameBoard.DetroitZoo; break;
+		case 21: currentLocation = GameBoard.chance; break;
+		case 22: currentLocation = GameBoard.Starbucks; break;
+		case 23: currentLocation = GameBoard.AppleStore; break;
+		default: currentLocation = GameBoard.jail; break;
+		}
+		return currentLocation;
 	}
 
 	// sets a players location
