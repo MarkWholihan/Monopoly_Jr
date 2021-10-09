@@ -9,14 +9,14 @@ import java.util.*;
 public class MonopolyJr {
 	public static void main(String [] args) {
 
-		intro();
+		//intro();
 		//rules();
 		// test move player
 
 		Player.playerOne.move(roll(), Player.playerOne);
-		System.out.println(Player.playerOne + "\n");
+		System.out.println(Player.playerOne + " has moved to\n");
 
-		Player.playerTwo.move(roll(), Player.playerTwo);
+		/**Player.playerTwo.move(roll(), Player.playerTwo);
 		System.out.println(Player.playerTwo + "\n");
 
 		Player.playerThree.move(roll(), Player.playerThree);
@@ -24,11 +24,11 @@ public class MonopolyJr {
 
 		Player.playerFour.move(roll(), Player.playerFour);
 		System.out.println(Player.playerFour + "\n");
-
-		for (int i = 0; i < 3; i++) {
+		*/
+		for (int i = 0; i < 9; i++) {
 			Player.playerOne.move(roll(), Player.playerOne);
-			System.out.println(Player.playerOne + "\n");
-		}
+			System.out.println(Player.playerOne + "\n"); 
+		} 
 	}
 
 	public static int roll() {

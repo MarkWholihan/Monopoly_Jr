@@ -69,7 +69,11 @@ public class Property extends BoardSpace {
 		//if class is a property, update the state of the property (owned/unowned, and owner).
 		for (int i = 0; i < unownedProperties.size(); i++) {
 			if (currentProperty == unownedProperties.get(i)) {
-				if (owned == true) {
+				System.out.println("This property is unowned!");
+			}
+				
+				
+				/**if (owned == true) {
 					currentPlayer.payPlayer(owner, currentProperty.cost);
 				} else {
 					currentPlayer.addProperty(currentProperty);
@@ -77,10 +81,10 @@ public class Property extends BoardSpace {
 					owned = true;
 					owner = currentPlayer;
 				}
-			} //else {
-				//System.out.println("GameOVER");
-				//System.exit(0);
-			//}
+			}  else {
+				System.out.println("GameOVER");
+				System.exit(0);
+			}*/
 		}
 	}
 }
