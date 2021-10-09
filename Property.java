@@ -12,7 +12,6 @@ public class Property extends BoardSpace {
 	private String name;
 	private int cost;
 	private String color;
-	private Property colorProp = GameBoard.Chicfila;
 
 	public Property(String pName, int pCost, String pColor) {
 		super("Property");
@@ -30,11 +29,9 @@ public class Property extends BoardSpace {
 		return result;
 	}
 
-
-
 	// mark owned/unowned status and who is the owner
-	private boolean owned = false;
-	private Player owner;
+	private static boolean owned = false;
+	private static Player owner;
 
 	public boolean Status() {
 		return owned;
@@ -46,7 +43,7 @@ public class Property extends BoardSpace {
 	}
 
 	// do things when player lands on this space
-	public void OnLanding(Player currentPlayer, Property currentProperty) {
+	public static void OnLanding(Player currentPlayer, Property currentProperty) {
 		
 		// ArrayList of Property objects
 		ArrayList<Property> unownedProperties = new ArrayList<>();
@@ -73,17 +70,17 @@ public class Property extends BoardSpace {
 		for (int i = 0; i < unownedProperties.size(); i++) {
 			if (currentProperty == unownedProperties.get(i)) {
 				if (owned == true) {
-					currentPlayer.payPlayer(owner, cost);
+					currentPlayer.payPlayer(owner, currentProperty.cost);
 				} else {
 					currentPlayer.addProperty(currentProperty);
 					unownedProperties.remove(i);
 					owned = true;
 					owner = currentPlayer;
 				}
-			} else {
-				System.out.println("GameOVER");
-				System.exit(0);
-			}
+			} //else {
+				//System.out.println("GameOVER");
+				//System.exit(0);
+			//}
 		}
 	}
 }

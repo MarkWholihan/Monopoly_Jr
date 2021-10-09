@@ -24,7 +24,7 @@ public class Player {
 	// constructs an object of player
 	public Player(String name) {
 		this.name = name;
-		cash = 16;
+		cash = 116;
 		location = 0;
 		currentLocation = getCurrentLoc();
 		getOutOfJailCard = false;
@@ -63,7 +63,7 @@ public class Player {
 
 		location = (spaces + location) % SPACE_TOTAL;
 		getCurrentLoc();
-		//Property.OnLanding();
+		//Property.OnLanding(currentPlayer, currentLocation);
 		System.out.println("");
 		return location;
 	}
@@ -98,7 +98,6 @@ public class Player {
 		case 23: currentLocation = GameBoard.AppleStore; break;
 		default: currentLocation = GameBoard.jail; break;
 		}
-		setCurrentLoc(currentLocation);
 		return currentLocation;
 	}
 
