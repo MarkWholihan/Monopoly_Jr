@@ -10,7 +10,7 @@ public class Player {
 	private String name;
 	private int cash;
 	private int location;
-	public static Property currentLocation;
+	private Property currentLocation;
 	private Boolean inJail;
 	public Boolean getOutOfJailCard;
 	private ArrayList<Chance> cards;
@@ -25,15 +25,16 @@ public class Player {
 	public Player(String name) {
 		this.name = name;
 		cash = 16;
-		currentLocation = GameBoard.go;
+		location = 0;
+		currentLocation = getCurrentLoc();
 		getOutOfJailCard = false;
 		cards = new ArrayList<Chance>();
 		ownedProperties = new ArrayList<Property>();
 	}
-	
+
 	// ArrayList of Player objects
 	public void playerArray() {	
-	ArrayList<Player> players = new ArrayList<Player>();
+		ArrayList<Player> players = new ArrayList<Player>();
 		players.add(playerOne);
 		players.add(playerTwo);
 		players.add(playerThree);
@@ -42,35 +43,36 @@ public class Player {
 
 	// returns information about this player as a string
 	public String toString() {
-		String result = ("Name: " + name + "\nCash: " + cash + "\nLocation: "
+		String result = ("Name: " + name + "\nCash: " + cash + "\nLocation: " + location +  "\nLocation "
 				+ currentLocation + "\nHas get out of jail free card? "
 				+ getOutOfJailCard + "\nProperties owned: "
 				+ ownedProperties);
 		return result;
 	}
-	
+
 	// returns players name
 	public String getName() {
 		return name;
 	}
 
 
-// LOCATION CONTROL ----------------------------------
-	
+	// LOCATION CONTROL ----------------------------------
+
 	// moves players location
-	public int move(int spaces) {
-		
+	public int move(int spaces, Player currentPlayer) {
+
 		location = (spaces + location) % SPACE_TOTAL;
-		
-		System.out.println("this works");
+		getCurrentLoc();
+		//Property.OnLanding();
+		System.out.println("");
 		return location;
 	}
-	
 
-	// returns a players location
-	public Property getLoc() {
+
+	// returns a players currentLocation
+	public Property getCurrentLoc() {
 		switch (location) {
-		case 0: currentLocation = GameBoard.go; return currentLocation;
+		case 0: currentLocation = GameBoard.go; break;
 		case 1: currentLocation = GameBoard.Chicfila; break;
 		case 2: currentLocation = GameBoard.LittleCaesars; break;
 		case 3: currentLocation = GameBoard.chance; break;
@@ -96,7 +98,13 @@ public class Player {
 		case 23: currentLocation = GameBoard.AppleStore; break;
 		default: currentLocation = GameBoard.jail; break;
 		}
+		setCurrentLoc(currentLocation);
 		return currentLocation;
+	}
+
+	// sets a players currentLocation
+	public void setCurrentLoc(Property currentLocation) {
+		currentLocation = this.currentLocation;
 	}
 
 	// sets a players location
@@ -104,8 +112,13 @@ public class Player {
 		this.location = location;
 	}
 
-	
-// MONEY CONTROL -------------------------------------
+	// returns a players location
+	public int getLoc() {
+		return location;
+	}
+
+
+	// MONEY CONTROL -------------------------------------
 	// returns players cash amount
 	public int getCash() {
 		return cash;
@@ -127,8 +140,8 @@ public class Player {
 		payee.addCash(amount);
 	}
 
-	
-// PROPERTY CONTROL ----------------------------------
+
+	// PROPERTY CONTROL ----------------------------------
 	// adds a property to the player
 	public void addProperty(Property property) {
 		ownedProperties.add(property);
@@ -139,8 +152,8 @@ public class Player {
 		return ownedProperties;
 	}
 
-	
-// JAIL CONTROL --------------------------------------
+
+	// JAIL CONTROL --------------------------------------
 	// returns true if player has get out of jail free card
 	public Boolean getOutOfJailFreeCard() {
 		if(cards.size() > 0) {

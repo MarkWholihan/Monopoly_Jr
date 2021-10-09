@@ -8,25 +8,25 @@ import java.util.*;
 
 public class MonopolyJr {
 	public static void main(String [] args) {
-		
+
 		intro();
 		//rules();
 		// test move player
-		
-		Player.playerOne.move(roll());
+
+		Player.playerOne.move(roll(), Player.playerOne);
 		System.out.println(Player.playerOne + "\n");
 
-		Player.playerTwo.move(roll());
+		Player.playerTwo.move(roll(), Player.playerTwo);
 		System.out.println(Player.playerTwo + "\n");
 
-		Player.playerThree.move(roll());
+		Player.playerThree.move(roll(), Player.playerThree);
 		System.out.println(Player.playerThree + "\n");
 
-		Player.playerFour.move(roll());
+		Player.playerFour.move(roll(), Player.playerFour);
 		System.out.println(Player.playerFour + "\n");
-		
+
 		for (int i = 0; i < 3; i++) {
-			Player.playerOne.move(roll());
+			Player.playerOne.move(roll(), Player.playerOne);
 			System.out.println(Player.playerOne + "\n");
 		}
 	}
@@ -34,7 +34,7 @@ public class MonopolyJr {
 	public static int roll() {
 		return (int)(Math.random() * 6) + 1;
 	}
-	
+
 	public static void intro() {
 		System.out.println("Welcome to Monopoly Jr.! ");
 		System.out.println("This is the starting players information\n");
@@ -42,7 +42,7 @@ public class MonopolyJr {
 		System.out.println(Player.playerOne + " \n\n" + Player.playerTwo + " \n\n" + Player.playerThree + " \n\n" + Player.playerFour);
 		System.out.println();
 	}
-	
+
 	public static void rules() {
 		System.out.println("SET IT UP!\n"
 				+ "1. Open the gameboard and put it in the center of the players.\n"
