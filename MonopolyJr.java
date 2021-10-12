@@ -8,13 +8,19 @@ import java.util.*;
 
 public class MonopolyJr {
 	public static void main(String [] args) {
+		
+		// newPos = playerOne.current + dice
+		// GameBoard.get(newpos).OnLanding();
 
+		GameBoard boardArray = new GameBoard();
 		//intro();
 		//rules();
 		// test move player
 
 		Player.playerOne.move(roll(), Player.playerOne);
-		System.out.println(Player.playerOne + " has moved to\n");
+		System.out.println(Player.playerOne.getName() + " has moved to\n" + Player.playerOne.getCurrentLoc());
+		BoardSpace current = boardArray.getBoard().get(Player.playerOne.getLoc());
+		//current.OnLanding(Player.playerOne, Player.playerOne.getCurrentLoc());
 
 		/**Player.playerTwo.move(roll(), Player.playerTwo);
 		System.out.println(Player.playerTwo + "\n");
@@ -24,11 +30,11 @@ public class MonopolyJr {
 
 		Player.playerFour.move(roll(), Player.playerFour);
 		System.out.println(Player.playerFour + "\n");
-		*/
+		
 		for (int i = 0; i < 9; i++) {
 			Player.playerOne.move(roll(), Player.playerOne);
 			System.out.println(Player.playerOne + "\n"); 
-		} 
+		} */
 	}
 
 	public static int roll() {

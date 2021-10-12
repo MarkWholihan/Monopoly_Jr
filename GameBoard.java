@@ -38,10 +38,11 @@ public class GameBoard {
 	public static Property Starbucks = new Property("Starbucks", 5, "Blue");
 	public static Property AppleStore = new Property("Apple Store", 5, "Blue");
 	
+	private ArrayList<BoardSpace> board;
 	
 	// establish array for game board
-	public void BoardArray() {
-		ArrayList<BoardSpace> board = new ArrayList<BoardSpace>();
+	public GameBoard() {
+		board = new ArrayList<BoardSpace>();
 		
 		// add board spaces
 		board.add(Go);
@@ -83,5 +84,9 @@ public class GameBoard {
 		
 		board.add(Starbucks);
 		board.add(AppleStore);
+	}
+	
+	public ArrayList<BoardSpace> getBoard() {
+	return board;
 	}
 }
