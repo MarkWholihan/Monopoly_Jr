@@ -9,18 +9,21 @@ import java.util.*;
 public class MonopolyJr {
 	public static void main(String [] args) {
 
-		// newPos = playerOne.current + dice
-		// GameBoard.get(newpos).OnLanding();
 		GameBoard boardArray = new GameBoard();
+
+		intro();
+
+		System.out.println("\nToy Boat starts because they are the youngest.");
+		for (int i = 0; i < 50; i++) {
+			oneRound();	
+		}
+	}
+
+	public static void oneRound() {
 		Scanner kb = new Scanner(System.in);
 		String entry = "";
-
-		//intro();
-		//rules();
-
-		System.out.println("Toy Boat starts because they are the youngest.");
 		System.out.println("\nIt is now Toy Boat's turn.");
-		System.out.print("Would you like to roll the die? Enter Y for Yes or N for No: ");
+		System.out.print("Would you like to roll the die? \nEnter Y for Yes or N for No: ");
 		entry = kb.nextLine();
 
 		if (entry.trim().toUpperCase().contains("Y")) {
@@ -30,7 +33,7 @@ public class MonopolyJr {
 		}
 
 		System.out.println("\nIt is now Toy Car's turn.");
-		System.out.print("Would you like to roll the die? Enter Y for Yes or N for No: ");
+		System.out.print("Would you like to roll the die? \nEnter Y for Yes or N for No: ");
 		entry = kb.next();
 
 		if (entry.trim().toUpperCase().contains("Y")) {
@@ -40,7 +43,7 @@ public class MonopolyJr {
 		}
 
 		System.out.println("\nIt is now Little Hazel's turn.");
-		System.out.print("Would you like to roll the die? Enter Y for Yes or N for No: ");
+		System.out.print("Would you like to roll the die? \nEnter Y for Yes or N for No: ");
 		entry = kb.next();
 
 		if (entry.trim().toUpperCase().contains("Y")) {
@@ -48,67 +51,73 @@ public class MonopolyJr {
 		} else {
 			System.out.println("Thank you for playing");
 		}
-			System.out.println("\nIt is now Littles Scottie's turn.");
-			System.out.print("Would you like to roll the die? Enter Y for Yes or N for No: ");
-			entry = kb.next();
 
-			if (entry.trim().toUpperCase().contains("Y")) {
-				Player.movePlayer(Player.playerFour);
-			} else {
-				System.out.println("Thank you for playing");
-			}
+		System.out.println("\nIt is now Littles Scottie's turn.");
+		System.out.print("Would you like to roll the die? \nEnter Y for Yes or N for No: ");
+		entry = kb.next();
+
+		if (entry.trim().toUpperCase().contains("Y")) {
+			Player.movePlayer(Player.playerFour);
+		} else {
+			System.out.println("Thank you for playing");
 		}
-		/**
-		// test move player
-		Player.movePlayer(Player.playerOne);
-		Player.movePlayer(Player.playerTwo);
-		Player.movePlayer(Player.playerThree);
-		Player.movePlayer(Player.playerFour);
-		 */
+	}
 
 	public static void intro() {
-		System.out.println("Welcome to Monopoly Jr.! ");
-		System.out.println("This is the starting players information\n");
+		Scanner kb = new Scanner(System.in);
+		String entry = "";
+		System.out.println("Welcome to Monopoly Junior! ");
+		System.out.print("\nWould you like to read the rules? \nEnter Y for Yes or N for No: ");
+		entry = kb.next();
 
+		if (entry.trim().toUpperCase().contains("Y")) {
+			rules();
+		}
+		
+		System.out.print("\nWould you like to see the starting players information? \nEnter Y for Yes or N for No: ");
+		entry = kb.next();
+
+		if (entry.trim().toUpperCase().contains("Y")) {
+		System.out.println("This is the starting players information\n");
 
 		System.out.println(Player.playerOne + " \n\n" + Player.playerTwo + " \n\n" + Player.playerThree + " \n\n" + Player.playerFour);
 		System.out.println();
+		}
 	}
 
 	public static void rules() {
-		System.out.println("SET IT UP!\n"
+		System.out.println("\nSET IT UP!\n"
 				+ "1. Open the gameboard and put it in the center of the players.\n"
 				+ "2. Pick up the Chance cards and remove the 4 token character cards.\n"
 				+ "These are not used in the game, just read them and choose!\n"
-				+ "\n"
 				+ "3. Place your token on GO!\n"
 				+ "4. Find the 12 sold signs that match your token and keep them in front of you.\n"
 				+ "5. Shuffle the 20 Chance cards and place them facedown on the\n"
 				+ "Chance space on the board.\n"
 				+ "6. Pick one player to be Banker. The Banker looks after the money.\n"
-				+ "It’s time to deal out the cash:\n"
-				+ "2-player game: give each player A20\n"
-				+ "3-player game: give each player A18\n"
-				+ "4-player game: give each player A16\n"
-				+ "The first time you play\n"
+				+ "\nIt’s time to deal out the cash:\n"
+				+ "2-player game: give each player $20\n"
+				+ "3-player game: give each player $18\n"
+				+ "4-player game: give each player $16\n"
+				+ "\nThe first time you play\n"
 				+ "Press out all 48 sold signs from the die cut sheet. Please dispose of the excess responsibly.\n"
-				+ "PLAY!\n"
-				+ "How to win\n"
+				+ "\nPLAY!\n"
+				+ "\nHow to win\n"
 				+ "Have the most money when any other player goes bankrupt (hasn’t got the cash to pay\n"
 				+ "rent, buy a property they land on, or pay a Chance card fee).\n"
-				+ "How to play\n"
+				+ "\nHow to play\n"
 				+ "1. The youngest player starts! Play continues to the left.\n"
 				+ "2. Roll the die and move your token that number of spaces\n"
 				+ "clockwise from GO.\n"
-				+ "	 •	 Always move forward, never backward\n"
-				+ "	 •	 Every time you pass or land on the GO space, collect A2!\n"
+				+ "• Always move forward, never backward\n"
+				+ "• Every time you pass or land on the GO space, collect $2!\n"
 				+ "3. Where did you land?\n"
 				+ "Read about all the different spaces before you start.\n"
 				+ "If you land on:\n"
 				+ "AN UNOWNED SPACE\n"
 				+ "If no one owns it, you must buy it!\n"
-				+ "•	 Pay the Bank the amount written on the space.\n"
-				+ "•	 Put one of your sold signs on the colored band at the top\n"
+				+ "• Pay the Bank the amount written on the space.\n"
+				+ "• Put one of your sold signs on the colored band at the top\n"
 				+ "of the space so everyone knows you own it!\n"
 				+ "AN OWNED SPACE\n"
 				+ "If another player owns it, pay them rent.\n"
@@ -117,60 +126,12 @@ public class MonopolyJr {
 				+ "A PAIR = DOUBLE RENT!\n"
 				+ "If a player owns both properties of the same color, rent is\n"
 				+ "double the amount shown on the space.\n"
-				+ "x12 x12 x12 x12\n"
 				+ "4. Turn over for info on the other board spaces and how to win!\n"
-				+ "A69840000 13 I MN JR.indd 2-3 9/5/13 10:16 AM\n"
-				+ "The 4 token character cards:\n"
+				+ "\nThe 4 token character cards:\n"
 				+ "Who will you be?\n"
-				+ "SET IT UP!\n"
-				+ "1. Open the gameboard and put it in the center of the players.\n"
-				+ "2. Pick up the Chance cards and remove the 4 token character cards.\n"
-				+ "These are not used in the game, just read them and choose!\n"
-				+ "\n"
-				+ "3. Place your token on GO!\n"
-				+ "4. Find the 12 sold signs that match your token and keep them in front of you.\n"
-				+ "5. Shuffle the 20 Chance cards and place them facedown on the\n"
-				+ "Chance space on the board.\n"
-				+ "6. Pick one player to be Banker. The Banker looks after the money.\n"
-				+ "It’s time to deal out the cash:\n"
-				+ "2-player game: give each player A20\n"
-				+ "3-player game: give each player A18\n"
-				+ "4-player game: give each player A16\n"
-				+ "The first time you play\n"
-				+ "Press out all 48 sold signs from the die cut sheet. Please dispose of the excess responsibly.\n"
-				+ "PLAY!\n"
-				+ "How to win\n"
-				+ "Have the most money when any other player goes bankrupt (hasn’t got the cash to pay\n"
-				+ "rent, buy a property they land on, or pay a Chance card fee).\n"
-				+ "How to play\n"
-				+ "1. The youngest player starts! Play continues to the left.\n"
-				+ "2. Roll the die and move your token that number of spaces\n"
-				+ "clockwise from GO.\n"
-				+ "	 •	 Always move forward, never backward\n"
-				+ "	 •	 Every time you pass or land on the GO space, collect A2!\n"
-				+ "3. Where did you land?\n"
-				+ "Read about all the different spaces before you start.\n"
-				+ "If you land on:\n"
-				+ "AN UNOWNED SPACE\n"
-				+ "If no one owns it, you must buy it!\n"
-				+ "•	 Pay the Bank the amount written on the space.\n"
-				+ "•	 Put one of your sold signs on the colored band at the top\n"
-				+ "of the space so everyone knows you own it!\n"
-				+ "AN OWNED SPACE\n"
-				+ "If another player owns it, pay them rent.\n"
-				+ "Rent is the amount written on the board space.\n"
-				+ "If you own it, do nothing.\n"
-				+ "A PAIR = DOUBLE RENT!\n"
-				+ "If a player owns both properties of the same color, rent is\n"
-				+ "double the amount shown on the space.\n"
-				+ "x12 x12 x12 x12\n"
-				+ "4. Turn over for info on the other board spaces and how to win!\n"
-				+ "A69840000 13 I MN JR.indd 2-3 9/5/13 10:16 AM\n"
-				+ "c Fast-Dealing Property Trading Game c\n"
-				+ "® BRAND\n"
-				+ "My First\n"
-				+ "Monopoly GAME\n"
-				+ "CONTENTS\n"
+				+ "Fast-Dealing Property Trading Game c® BRAND\n"
+				+ "My First Monopoly GAME\n"
+				+ "\nCONTENTS\n"
 				+ "1 Gameboard\n"
 				+ "4 Tokens\n"
 				+ "20 Chance Cards\n"
@@ -179,7 +140,7 @@ public class MonopolyJr {
 				+ "4 Who’s Your Token?\n"
 				+ "Character Cards\n"
 				+ "1 Die\n"
-				+ "The HASBRO GAMING and MONOPOLY names and logos, the distinctive design of the gameboard, the four corner squares, the\n"
+				+ "\nThe HASBRO GAMING and MONOPOLY names and logos, the distinctive design of the gameboard, the four corner squares, the\n"
 				+ "MR. MONOPOLY name and character, as well as each of the distinctive elements of the board and playing pieces are trademarks\n"
 				+ "of Hasbro for its property trading game and game equipment. All Rights Reserved. TM & ® denote U.S. Trademarks.\n"
 				+ "© 1935, 2013 Hasbro, Pawtucket, RI 02861-1059 USA.\n"
@@ -191,32 +152,26 @@ public class MonopolyJr {
 				+ "MADE IN USA WITH TOKENS AND DIE MADE IN CHINA.\n"
 				+ "FABRIQUÉ AUX É-U. PIONS ET DÉ FABRIQUÉS EN CHINE.\n"
 				+ "www.hasbro.com 101A698400\n"
-				+ "AIM OF THE GAME!\n"
-				+ "•	 Zoom around the board,\n"
-				+ "buy every property you\n"
-				+ "land on, collect money and\n"
-				+ "pick up Chance cards.\n"
-				+ "•	 When one player runs out\n"
-				+ "of money, the others count\n"
-				+ "their cash.\n"
-				+ "•	 The player with the most\n"
-				+ "money wins!\n"
-				+ "THE BOARD SPACES\n"
-				+ "GO\n"
+				+ "\nAIM OF THE GAME!\n"
+				+ "• Zoom around the board, buy every property you land on, collect money and pick up Chance cards.\n"
+				+ "• When one player runs out of money, the others count their cash.\n"
+				+ "• The player with the most money wins!\n"
+				+ "\nTHE BOARD SPACES\n"
+				+ "\nGO\n"
 				+ "Every time you pass or land on GO, collect A2 from the Bank.\n"
-				+ "CHANCE\n"
-				+ "•	Take the top Chance card, read it out loud and follow the instructions.\n"
-				+ "•	Return used cards to the bottom of the pile.\n"
-				+ "GO TO JAIL\n"
-				+ "Go straight to jail! Do not pass GO. Do not collect A2. At the start of your next turn,\n"
-				+ "pay A1 or use the Get Out of Jail Free card if you have it. Then roll and move as\n"
+				+ "\nCHANCE\n"
+				+ "• Take the top Chance card, read it out loud and follow the instructions.\n"
+				+ "• Return used cards to the bottom of the pile.\n"
+				+ "\nGO TO JAIL\n"
+				+ "Go straight to jail! Do not pass GO. Do not collect $2. At the start of your next turn,\n"
+				+ "pay $1 or use the Get Out of Jail Free card if you have it. Then roll and move as\n"
 				+ "normal. You can collect rent while In Jail.\n"
-				+ "JUST VISITING\n"
+				+ "\nJUST VISITING\n"
 				+ "You are Just Visiting if you land here on your roll!\n"
-				+ "FREE PARKING\n"
+				+ "\nFREE PARKING\n"
 				+ "Do nothing, just take a break.\n"
-				+ "5. That’s it! Now it’s the next player’s turn.\n"
-				+ "WIN!\n"
+				+ "That’s it! Now it’s the next player’s turn.\n"
+				+ "\nWIN!\n"
 				+ "1. If you don’t have enough money to pay rent, buy a property you land on, or pay\n"
 				+ "a Chance card fee, you’re bankrupt! And that’s the end of the game.\n"
 				+ "2. The other players all count their money, and the player with the most money WINS!\n"
