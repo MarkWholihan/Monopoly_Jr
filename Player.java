@@ -14,12 +14,13 @@ public class Player {
 	private Boolean inJail;
 	public Boolean getOutOfJailCard;
 	private ArrayList<Chance> cards;
-	private ArrayList<Property> ownedProperties;
+	public ArrayList<Property> ownedProperties;
 	public static final int SPACE_TOTAL = 23;
 	public static Player playerOne = new Player("Toy Boat");
 	public static Player playerTwo = new Player("Toy Car");
 	public static Player playerThree = new Player("Little Hazel");
 	public static Player playerFour = new Player("Little Scottie");
+	public static Player banker = new Player("Banker");
 
 	// constructs an object of player
 	public Player(String name) {
@@ -103,7 +104,7 @@ public class Player {
 
 	// sets a players currentLocation
 	public void setCurrentLoc(Property currentLocation) {
-		currentLocation = this.currentLocation;
+		this.currentLocation = currentLocation;
 	}
 
 	// sets a players location
