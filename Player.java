@@ -53,7 +53,7 @@ public class Player {
 
 	// returns players name
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 
@@ -69,6 +69,15 @@ public class Player {
 		return location;
 	}
 
+	public static void movePlayer(Player currentPlayer) {
+		currentPlayer.move(roll(), currentPlayer);
+		System.out.println(currentPlayer.getName() + " has moved to\n" + currentPlayer.getCurrentLoc());
+		Property.OnLanding(currentPlayer, currentPlayer.getCurrentLoc());
+		}
+	
+	public static int roll() {
+		return (int)(Math.random() * 6) + 1;
+	}
 
 	// returns a players currentLocation
 	public Property getCurrentLoc() {
