@@ -9,18 +9,11 @@ import java.util.ArrayList;
 public class GameBoard {
 	
 	// import board spaces as objects
-	public static Go Go = new Go();
-	public static Chance Chance = new Chance();
-	public static FreeParking FreeParking = new FreeParking();
-	public static GoToJail GoToJail = new GoToJail();
-	public static Jail Jail = new Jail();
-	
-	// properties
-	public static Property go = new Property("GO", 0, "");
-	public static Property jail = new Property("JAIL", 0, "");
-	public static Property goToJail = new Property("GO TO JAIL", 0, "");
-	public static Property chance = new Property("CHANCE", 0, "");
-	public static Property freeParking = new Property("FREE PARKING", 0, "");
+	public static Property Go = new Property("GO", 0, "");
+    public static Property Jail = new Property("JAIL", 0, "");
+    public static Property GoToJail = new Property("GO TO JAIL", 0, "");
+    public static Property Chance = new Property("CHANCE", 0, "");
+    public static Property FreeParking = new Property("FREE PARKING", 0, "");
 	public static Property Chicfila = new Property("Chic-fil-a", 1, "Brown");
 	public static Property LittleCaesars = new Property("Little Caesar's", 1, "Brown");
 	public static Property DairyQueen = new Property("Dairy Queen", 2, "Cyan");

@@ -11,9 +11,9 @@ public class Player {
 	private int cash;
 	private int location;
 	private Property currentLocation;
-	private Boolean inJail;
+	public Boolean inJail;
 	public Boolean getOutOfJailCard;
-	private ArrayList<Chance> cards;
+	public ArrayList<String> cards;
 	public ArrayList<Property> ownedProperties;
 	public static final int SPACE_TOTAL = 23;
 	public static Player playerOne = new Player("Toy Boat");
@@ -28,8 +28,9 @@ public class Player {
 		cash = 116;
 		location = 0;
 		currentLocation = getCurrentLoc();
+		inJail = false;
 		getOutOfJailCard = false;
-		cards = new ArrayList<Chance>();
+		cards = new ArrayList<String>();
 		ownedProperties = new ArrayList<Property>();
 	}
 
@@ -57,11 +58,11 @@ public class Player {
 	}
 
 
+	
 	// LOCATION CONTROL ----------------------------------
 
 	// moves players location
 	public int move(int spaces, Player currentPlayer) {
-
 		location = (spaces + location) % SPACE_TOTAL;
 		getCurrentLoc();
 		//Property.OnLanding(currentPlayer, currentLocation);
@@ -82,31 +83,31 @@ public class Player {
 	// returns a players currentLocation
 	public Property getCurrentLoc() {
 		switch (location) {
-		case 0: currentLocation = GameBoard.go; break;
+		case 0: currentLocation = GameBoard.Go; break;
 		case 1: currentLocation = GameBoard.Chicfila; break;
 		case 2: currentLocation = GameBoard.LittleCaesars; break;
-		case 3: currentLocation = GameBoard.chance; break;
+		case 3: currentLocation = GameBoard.Chance; break;
 		case 4: currentLocation = GameBoard.DairyQueen; break;
 		case 5: currentLocation = GameBoard.ChocoFactory; break;
-		case 6: currentLocation = GameBoard.jail; break;
+		case 6: currentLocation = GameBoard.Jail; break;
 		case 7: currentLocation = GameBoard.HalleLibrary; break;
 		case 8: currentLocation = GameBoard.YpsiMuseum; break;
-		case 9: currentLocation = GameBoard.chance; break;
+		case 9: currentLocation = GameBoard.Chance; break;
 		case 10: currentLocation = GameBoard.FrogIslandPark; break;
 		case 11: currentLocation = GameBoard.FordLake; break;
-		case 12: currentLocation = GameBoard.freeParking; break;
+		case 12: currentLocation = GameBoard.FreeParking; break;
 		case 13: currentLocation = GameBoard.PinballPetes; break;
 		case 14: currentLocation = GameBoard.MJR; break;
-		case 15: currentLocation = GameBoard.chance; break;
+		case 15: currentLocation = GameBoard.Chance; break;
 		case 16: currentLocation = GameBoard.Petco; break;
 		case 17: currentLocation = GameBoard.ToysRUs; break;
-		case 18: currentLocation = GameBoard.goToJail; break;
+		case 18: currentLocation = GameBoard.GoToJail; break;
 		case 19: currentLocation = GameBoard.Bowlero; break;
 		case 20: currentLocation = GameBoard.DetroitZoo; break;
-		case 21: currentLocation = GameBoard.chance; break;
+		case 21: currentLocation = GameBoard.Chance; break;
 		case 22: currentLocation = GameBoard.Starbucks; break;
 		case 23: currentLocation = GameBoard.AppleStore; break;
-		default: currentLocation = GameBoard.jail; break;
+		default: currentLocation = GameBoard.Jail; break;
 		}
 		return currentLocation;
 	}
@@ -127,6 +128,7 @@ public class Player {
 	}
 
 
+	
 	// MONEY CONTROL -------------------------------------
 	// returns players cash amount
 	public int getCash() {
@@ -150,6 +152,7 @@ public class Player {
 	}
 
 
+	
 	// PROPERTY CONTROL ----------------------------------
 	// adds a property to the player
 	public void addProperty(Property property) {
@@ -160,28 +163,28 @@ public class Player {
 	public ArrayList<Property> getProperties() {
 		return ownedProperties;
 	}
+	
+	
 
 
 	// JAIL CONTROL --------------------------------------
 	// returns true if player has get out of jail free card
-	public Boolean getOutOfJailFreeCard() {
+	public Boolean getOutOfJailCard() {
 		if(cards.size() > 0) {
 			getOutOfJailCard = true;
-			cards.remove(cards.size()-1);
 			return true;
-		}
-		else {
+		} else {
 			getOutOfJailCard = false;
 			return false;
 		}
 	}
 
 	// uses getOutOfJailCard
-	public void useCard(Chance goojf) {
-		cards.add(goojf);
-		getOutOfJailCard = true;
+	public void useCard(String getOutOfJailCard) {
+		cards.remove(getOutOfJailCard);
+		inJail = false;
 	}
-
+	
 	// player is in jail
 	public Boolean playerInJail() {
 		return inJail;

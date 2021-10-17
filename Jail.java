@@ -8,17 +8,16 @@ public class Jail extends BoardSpace {
 	
 	public Jail() {
 		super("Jail");
-	}
+	}	
 	
-	
-	// if "inJail" = true, keep player in jail
-	
-	
-	public void OnLanding() {
-		//update the player’s cash balance,
+	public void OnLanding(Player currentPlayer) {
+		// if jailed, check for GTFO jail card
+		if (currentPlayer.inJail = true) {
+			if (currentPlayer.getOutOfJailCard = true) {
+				currentPlayer.useCard("getOutOfJailCard");
+			}
+		}
 		
-		//update the player’s position on the board, and
 		
-		//if class is a property, update the state of the property (owned/unowned, and owner).
 	}
 }
