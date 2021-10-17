@@ -16,25 +16,32 @@ public class MonopolyJr {
 		//intro();
 		//rules();
 		// test move player
+		
 
 		Player.playerOne.move(roll(), Player.playerOne);
 		System.out.println(Player.playerOne.getName() + " has moved to\n" + Player.playerOne.getCurrentLoc());
-		BoardSpace current = boardArray.getBoard().get(Player.playerOne.getLoc());
-		//current.OnLanding(Player.playerOne, Player.playerOne.getCurrentLoc());
+		//BoardSpace current = boardArray.getBoard().get(Player.playerOne.getLoc());
+		Property.OnLanding(Player.playerOne, Player.playerOne.getCurrentLoc());
+		//System.out.println("Players current properties: " + Player.playerOne.ownedProperties);
 
-		/**Player.playerTwo.move(roll(), Player.playerTwo);
-		System.out.println(Player.playerTwo + "\n");
+		Player.playerTwo.move(roll(), Player.playerTwo);
+		System.out.println(Player.playerTwo.getName() + " has moved to\n" + Player.playerTwo.getCurrentLoc());
+		Property.OnLanding(Player.playerTwo, Player.playerTwo.getCurrentLoc());
 
 		Player.playerThree.move(roll(), Player.playerThree);
-		System.out.println(Player.playerThree + "\n");
+		System.out.println(Player.playerThree.getName() + " has moved to\n" + Player.playerThree.getCurrentLoc());
+		Property.OnLanding(Player.playerThree, Player.playerThree.getCurrentLoc());
+
 
 		Player.playerFour.move(roll(), Player.playerFour);
-		System.out.println(Player.playerFour + "\n");
+		System.out.println(Player.playerFour.getName() + " has moved to\n" + Player.playerFour.getCurrentLoc());
+		Property.OnLanding(Player.playerFour, Player.playerFour.getCurrentLoc());
+
 		
-		for (int i = 0; i < 9; i++) {
-			Player.playerOne.move(roll(), Player.playerOne);
-			System.out.println(Player.playerOne + "\n"); 
-		} */
+		//for (int i = 0; i < 9; i++) {
+		//	Player.playerOne.move(roll(), Player.playerOne);
+		//	System.out.println(Player.playerOne + "\n"); 
+		//} 
 	}
 
 	public static int roll() {
