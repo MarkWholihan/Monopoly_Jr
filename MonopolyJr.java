@@ -8,49 +8,48 @@ import java.util.*;
 
 public class MonopolyJr {
 	public static void main(String [] args) {
-		
+
 		// newPos = playerOne.current + dice
 		// GameBoard.get(newpos).OnLanding();
-
 		GameBoard boardArray = new GameBoard();
+		Scanner kb = new Scanner(System.in);
+		String entry = "";
+		
 		//intro();
 		//rules();
+		
+		System.out.println("Toy Boat starts because they are the youngest.");
+		System.out.println("Would you like to roll the die? Enter Y for Yes or N for No");
+		entry = kb.next();
+		
+		if (entry.trim().toUpperCase().contains("Y")) {
+			Player.movePlayer(Player.playerOne);
+		} else {
+			System.out.println("Thank you for playing");
+		}
+		
+		System.out.println("\nIt is now Toy Car's turn.");
+		System.out.println("Would you like to roll the die? Enter Y for Yes or N for No");
+		entry = kb.next();
+		
+		if (entry.trim().toUpperCase().contains("Y")) {
+			Player.movePlayer(Player.playerTwo);
+		} else {
+			System.out.println("Thank you for playing");
+		}
+		/**
 		// test move player
-		
-
-		Player.playerOne.move(roll(), Player.playerOne);
-		System.out.println(Player.playerOne.getName() + " has moved to\n" + Player.playerOne.getCurrentLoc());
-		//BoardSpace current = boardArray.getBoard().get(Player.playerOne.getLoc());
-		Property.OnLanding(Player.playerOne, Player.playerOne.getCurrentLoc());
-		//System.out.println("Players current properties: " + Player.playerOne.ownedProperties);
-
-		Player.playerTwo.move(roll(), Player.playerTwo);
-		System.out.println(Player.playerTwo.getName() + " has moved to\n" + Player.playerTwo.getCurrentLoc());
-		Property.OnLanding(Player.playerTwo, Player.playerTwo.getCurrentLoc());
-
-		Player.playerThree.move(roll(), Player.playerThree);
-		System.out.println(Player.playerThree.getName() + " has moved to\n" + Player.playerThree.getCurrentLoc());
-		Property.OnLanding(Player.playerThree, Player.playerThree.getCurrentLoc());
-
-
-		Player.playerFour.move(roll(), Player.playerFour);
-		System.out.println(Player.playerFour.getName() + " has moved to\n" + Player.playerFour.getCurrentLoc());
-		Property.OnLanding(Player.playerFour, Player.playerFour.getCurrentLoc());
-
-		
-		//for (int i = 0; i < 9; i++) {
-		//	Player.playerOne.move(roll(), Player.playerOne);
-		//	System.out.println(Player.playerOne + "\n"); 
-		//} 
+		Player.movePlayer(Player.playerOne);
+		Player.movePlayer(Player.playerTwo);
+		Player.movePlayer(Player.playerThree);
+		Player.movePlayer(Player.playerFour);
+		*/
 	}
-
-	public static int roll() {
-		return (int)(Math.random() * 6) + 1;
-	}
-
+	
 	public static void intro() {
 		System.out.println("Welcome to Monopoly Jr.! ");
 		System.out.println("This is the starting players information\n");
+		
 
 		System.out.println(Player.playerOne + " \n\n" + Player.playerTwo + " \n\n" + Player.playerThree + " \n\n" + Player.playerFour);
 		System.out.println();
