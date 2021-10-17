@@ -70,8 +70,9 @@ public class Player {
 	}
 
 	public static void movePlayer(Player currentPlayer) {
-		currentPlayer.move(roll(), currentPlayer);
-		System.out.println(currentPlayer.getName() + " has moved to\n" + currentPlayer.getCurrentLoc());
+		int roll = roll();
+		currentPlayer.move(roll, currentPlayer);
+		System.out.println(currentPlayer.getName() + " rolled a " + roll + " and has moved to\n" + currentPlayer.getCurrentLoc());
 		Property.OnLanding(currentPlayer, currentPlayer.getCurrentLoc());
 		}
 	
