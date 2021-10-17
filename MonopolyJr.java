@@ -14,28 +14,49 @@ public class MonopolyJr {
 		GameBoard boardArray = new GameBoard();
 		Scanner kb = new Scanner(System.in);
 		String entry = "";
-		
+
 		//intro();
 		//rules();
-		
+
 		System.out.println("Toy Boat starts because they are the youngest.");
-		System.out.println("Would you like to roll the die? Enter Y for Yes or N for No");
-		entry = kb.next();
-		
+		System.out.println("\nIt is now Toy Boat's turn.");
+		System.out.print("Would you like to roll the die? Enter Y for Yes or N for No: ");
+		entry = kb.nextLine();
+
 		if (entry.trim().toUpperCase().contains("Y")) {
 			Player.movePlayer(Player.playerOne);
 		} else {
 			System.out.println("Thank you for playing");
 		}
-		
+
 		System.out.println("\nIt is now Toy Car's turn.");
-		System.out.println("Would you like to roll the die? Enter Y for Yes or N for No");
+		System.out.print("Would you like to roll the die? Enter Y for Yes or N for No: ");
 		entry = kb.next();
-		
+
 		if (entry.trim().toUpperCase().contains("Y")) {
 			Player.movePlayer(Player.playerTwo);
 		} else {
 			System.out.println("Thank you for playing");
+		}
+
+		System.out.println("\nIt is now Little Hazel's turn.");
+		System.out.print("Would you like to roll the die? Enter Y for Yes or N for No: ");
+		entry = kb.next();
+
+		if (entry.trim().toUpperCase().contains("Y")) {
+			Player.movePlayer(Player.playerThree);
+		} else {
+			System.out.println("Thank you for playing");
+		}
+			System.out.println("\nIt is now Littles Scottie's turn.");
+			System.out.print("Would you like to roll the die? Enter Y for Yes or N for No: ");
+			entry = kb.next();
+
+			if (entry.trim().toUpperCase().contains("Y")) {
+				Player.movePlayer(Player.playerFour);
+			} else {
+				System.out.println("Thank you for playing");
+			}
 		}
 		/**
 		// test move player
@@ -43,13 +64,12 @@ public class MonopolyJr {
 		Player.movePlayer(Player.playerTwo);
 		Player.movePlayer(Player.playerThree);
 		Player.movePlayer(Player.playerFour);
-		*/
-	}
-	
+		 */
+
 	public static void intro() {
 		System.out.println("Welcome to Monopoly Jr.! ");
 		System.out.println("This is the starting players information\n");
-		
+
 
 		System.out.println(Player.playerOne + " \n\n" + Player.playerTwo + " \n\n" + Player.playerThree + " \n\n" + Player.playerFour);
 		System.out.println();
