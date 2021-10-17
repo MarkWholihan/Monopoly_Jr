@@ -12,26 +12,26 @@ public class Property extends BoardSpace {
 	private String name;
 	private int cost;
 	private String color;
+	private boolean owned = false;
+	private Player owner = Player.banker;
 
 	public Property(String pName, int pCost, String pColor) {
 		super("Property");
 		name = pName;
 		cost = pCost;
 		color = pColor;
+		owned = false;
+		owner = Player.banker;
 	}
 
 	// returns information about this player as a string
 	public String toString() {
-		String result = ("Name: " + name + "\nCost: " + cost + "\nColor: "
+		String result = ("\nName: " + name + "\nCost: " + cost + "\nColor: "
 				+ color + "\nIs owned? "
 				+ owned + "\nOwner: "
-				+ owner);
+				+ owner.getName());
 		return result;
 	}
-
-	// mark owned/unowned status and who is the owner
-	private static boolean owned = false;
-	private static Player owner;
 
 	public boolean Status() {
 		return owned;
@@ -68,21 +68,22 @@ public class Property extends BoardSpace {
 		//update the player’s position on the board, and
 		//if class is a property, update the state of the property (owned/unowned, and owner).
 		for (int i = 0; i < unownedProperties.size(); i++) {
-			if (currentProperty == unownedProperties.get(i)) {
-				System.out.println("This property is unowned!");
+			if (currentProperty.equals(unownedProperties.get(i))) {
+				System.out.println("This property is unowned!" + unownedProperties.get(i));
 
-				if (owned == true) {
-					currentPlayer.payPlayer(owner, currentProperty.cost);
+				if (currentProperty.owned == true) {
+					currentPlayer.payPlayer(currentProperty.owner, currentProperty.cost);
+					System.out.println("Paid " + currentProperty.owner.getName() + " $" + currentProperty.cost + " for rent");
 				} else {
 					currentPlayer.addProperty(currentProperty);
 					unownedProperties.remove(i);
-					owned = true;
-					owner = currentPlayer;
+					currentProperty.owned = true;
+					currentProperty.owner = currentPlayer;
+					System.out.println("Property purchased for $" + currentProperty.cost );
+					System.out.println("Property added to players properties");
+					break;
 				}
-			}  else {
-				System.out.println("GameOVER");
-				System.exit(0);
-			}
+			}  
 		}
 	}
 }
