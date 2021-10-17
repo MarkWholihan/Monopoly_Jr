@@ -26,8 +26,8 @@ public class Property extends BoardSpace {
 
 	// returns information about this player as a string
 	public String toString() {
-		String result = ("Name: " + name + "\nCost: " + cost + "\nColor: "
-				+ color + "\nIs owned? "
+		String result = ("Name: " + name + "\nCost: $" + cost + "\nColor: "
+				+ color + "\nOwned?: "
 				+ owned + "\nOwner: "
 				+ owner.getName());
 		return result;
@@ -62,7 +62,7 @@ public class Property extends BoardSpace {
 			currentProperty.owned = true;
 			currentProperty.owner = currentPlayer;
 			System.out.println(currentProperty.name + " purchased for $" + currentProperty.cost + " by " + currentPlayer.getName());
-			System.out.println(currentProperty.name + " property added to " + currentPlayer.getName() + "'s properties");
+			System.out.println(currentProperty.name + " added to " + currentPlayer.getName() + "'s properties");
 		}
 	}
 }
