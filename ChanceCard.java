@@ -7,14 +7,17 @@ public class ChanceCard {
 // CARD TEMPLATE ---------------------------------------------------
 	private String cardType;
 	private String cardDesc;
+	private ChanceFx chanceFx;
 	static ArrayList<ChanceCard> deck = new ArrayList<ChanceCard>();
 	
 	Random random = new Random();
 	Scanner kb = new Scanner(System.in);
 	
-	public ChanceCard(String cType, String cDesc) {
+	public ChanceCard(String cType, String cDesc, ChanceFx cFx) {
 		cardType = cType;
 		cardDesc = cDesc;
+		chanceFx = cFx;
+		
 		
 		// if free property card, pick random color/ color set
 		if (cType.equals("FreeProp")) {
@@ -75,7 +78,6 @@ public class ChanceCard {
 	
 	
 	
-	
 // CHANCE CARD DECK ARRAY ---------------------------------------
 	
 	public static ChanceCard getChance() {
@@ -83,7 +85,7 @@ public class ChanceCard {
 		return deck.get(i-1);
 	}
 	
-	public void ChanceArray(Player currentPlayer, Property currentProperty) {
+	public void ChanceArray(Player currentPlayer, BoardSpace currentSpace) {
 		
 		// advance to color cards
 		ChanceCard advanceColor = new ChanceCard("FreeProp", "Advance to"
@@ -161,6 +163,50 @@ public class ChanceCard {
 				+ "and buy it. If all are owned, buy the closest property"
 				+ "not owned by you from the owner! Owner MUST "
 				+ "sell.");
+		/* int distance;
+			int numOwned=0;
+			int checkLoc;
+			for (int i=0; i<=23; i++) {
+				// scroll thru board from current location onward, restart count if over 23
+				checkLoc = boardArray.get((currentPlayer.getLoc()+i));
+				if (checkLoc > 23) {
+					checkLoc -= 23;
+				}
+				
+			
+				// count num of owned spaces, break loop if all spaces owned
+				if (numOwned < 16) {
+					if (boardArray.get(checkLoc).owned = false) {
+						if (currentPlayer.getLoc() < checkLoc) {
+							distance = checkLoc-currentPlayer.getLoc();
+						} else {
+							distance = 23-currentPlayer.getLoc();
+					} else {
+						numOwned++;
+					}
+				} else {
+					break;
+				}
+			
+			
+			
+			// all spaces owned, go to nearest not-yours property
+			for (int i=0; i<=23;i++) {
+				// scroll thru board from current location onward, restart count if over 23
+				checkLoc = boardArray.get((currentPlayer.getLoc()+i));
+				if (checkLoc > 23) {
+					checkLoc -= 23;
+				}
+			
+				// go to nearest not-yours owned property
+				if (boardArray.get(checkLoc).owner != currentPlayer && boardArray.get(checkLoc).owner != Player.banker) {
+					if (currentPlayer.getLoc() < checkLoc) {
+							distance = checkLoc-currentPlayer.getLoc();
+						} else {
+							distance = 23-currentPlayer.getLoc();
+				}
+			}
+		 */
 		
 				
 		deck.add(advanceColor);

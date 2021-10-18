@@ -9,27 +9,27 @@ import java.util.ArrayList;
 public class GameBoard {
 	
 	// import board spaces as objects
-	public static Property Go = new Property("GO", 0, "");
-    public static Property Jail = new Property("JAIL", 0, "");
-    public static Property GoToJail = new Property("GO TO JAIL", 0, "");
-    public static Property Chance = new Property("CHANCE", 0, "");
-    public static Property FreeParking = new Property("FREE PARKING", 0, "");
-	public static Property Chicfila = new Property("Chic-fil-a", 1, "Brown");
-	public static Property LittleCaesars = new Property("Little Caesar's", 1, "Brown");
-	public static Property DairyQueen = new Property("Dairy Queen", 2, "Cyan");
-	public static Property ChocoFactory = new Property("Choco Factory", 2, "Cyan");
-	public static Property HalleLibrary = new Property("Halle Library", 2, "Pink");
-	public static Property YpsiMuseum = new Property("Ypsi Museum", 2, "Pink");
-	public static Property FrogIslandPark = new Property("Frog Island Park", 3, "Orange");
-	public static Property FordLake = new Property("Ford Lake", 3, "Orange");
-	public static Property PinballPetes = new Property("Pinball Pete's", 3, "Red");
-	public static Property MJR = new Property("MJR Theater", 3, "Red");
-	public static Property Petco = new Property("Petco", 3, "Yellow");
-	public static Property ToysRUs = new Property("Toys R Us", 3, "Yellow");
-	public static Property Bowlero = new Property("Bowlero", 4, "Green");
-	public static Property DetroitZoo = new Property("Detroit Zoo", 4, "Green");
-	public static Property Starbucks = new Property("Starbucks", 5, "Blue");
-	public static Property AppleStore = new Property("Apple Store", 5, "Blue");
+	public static BoardSpace Go = new Go();
+    public static BoardSpace Jail = new Jail();
+    public static BoardSpace GoToJail = new GoToJail();
+    public static BoardSpace Chance = new Chance();
+    public static BoardSpace FreeParking = new FreeParking();
+	public static BoardSpace Chicfila = new BoardSpace("Chic-fil-a", 1, "Brown", false);
+	public static BoardSpace LittleCaesars = new BoardSpace("Little Caesar's", 1, "Brown", false);
+	public static BoardSpace DairyQueen = new BoardSpace("Dairy Queen", 2, "Cyan", false);
+	public static BoardSpace ChocoFactory = new BoardSpace("Choco Factory", 2, "Cyan", false);
+	public static BoardSpace HalleLibrary = new BoardSpace("Halle Library", 2, "Pink", false);
+	public static BoardSpace YpsiMuseum = new BoardSpace("Ypsi Museum", 2, "Pink", false);
+	public static BoardSpace FrogIslandPark = new BoardSpace("Frog Island Park", 3, "Orange", false);
+	public static BoardSpace FordLake = new BoardSpace("Ford Lake", 3, "Orange", false);
+	public static BoardSpace PinballPetes = new BoardSpace("Pinball Pete's", 3, "Red", false);
+	public static BoardSpace MJR = new BoardSpace("MJR Theater", 3, "Red", false);
+	public static BoardSpace Petco = new BoardSpace("Petco", 3, "Yellow", false);
+	public static BoardSpace ToysRUs = new BoardSpace("Toys R Us", 3, "Yellow", false);
+	public static BoardSpace Bowlero = new BoardSpace("Bowlero", 4, "Green", false);
+	public static BoardSpace DetroitZoo = new BoardSpace("Detroit Zoo", 4, "Green", false);
+	public static BoardSpace Starbucks = new BoardSpace("Starbucks", 5, "Blue", false);
+	public static BoardSpace AppleStore = new BoardSpace("Apple Store", 5, "Blue", false);
 	
 	private ArrayList<BoardSpace> board;
 	

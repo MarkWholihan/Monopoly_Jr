@@ -7,7 +7,7 @@ Due date: 10-10-2021 by 11:59pm
 public class FreeParking extends BoardSpace {
 	
 	public FreeParking() {
-		super("FreeParking");
+		super("FreeParking", 0, "", null);
 	}
 	
 	public void OnLanding() {

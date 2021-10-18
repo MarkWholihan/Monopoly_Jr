@@ -1,7 +1,7 @@
 
 public class GoToJail extends BoardSpace {
 	public GoToJail() {
-		super("GoToJail");
+		super("GoToJail", 0, "", null);
 	}
 	
 	public void OnLanding(Player currentPlayer) {

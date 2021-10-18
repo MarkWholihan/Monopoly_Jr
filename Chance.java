@@ -11,7 +11,7 @@ public class Chance extends BoardSpace {
 	Random random = new Random();
 	
 	public Chance() {
-		super("Chance");
+		super("Chance", 0, "", null);
 	}	
 	
 	// pick chance card

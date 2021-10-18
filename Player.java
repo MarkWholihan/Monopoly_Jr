@@ -10,12 +10,12 @@ public class Player {
 	private String name;
 	private int cash;
 	private int location;
-	private Property currentLocation;
+	private BoardSpace currentLocation;
 	public Boolean inJail;
 	public Boolean getOutOfJailCard;
 	public Boolean getAnyProp;
 	public ArrayList<String> cards;
-	public ArrayList<Property> ownedProperties;
+	public ArrayList<BoardSpace> ownedProperties;
 	
 	public static final int SPACE_TOTAL = 23;
 	public static Player playerOne = new Player("Toy Boat");
@@ -33,7 +33,7 @@ public class Player {
 		inJail = false;
 		getOutOfJailCard = false;
 		cards = new ArrayList<String>();
-		ownedProperties = new ArrayList<Property>();
+		ownedProperties = new ArrayList<BoardSpace>();
 	}
 
 	// ArrayList of Player objects
@@ -76,7 +76,7 @@ public class Player {
 		int roll = roll();
 		currentPlayer.move(roll, currentPlayer);
 		System.out.println(currentPlayer.getName() + " rolled a " + roll + " and has moved to\n" + currentPlayer.getCurrentLoc());
-		Property.OnLanding(currentPlayer, currentPlayer.getCurrentLoc());
+		BoardSpace.OnLanding(currentPlayer, currentPlayer.getCurrentLoc());
 		}
 	
 	public static int roll() {
@@ -84,7 +84,7 @@ public class Player {
 	}
 
 	// returns a players currentLocation
-	public Property getCurrentLoc() {
+	public BoardSpace getCurrentLoc() {
 		switch (location) {
 		case 0: currentLocation = GameBoard.Go; break;
 		case 1: currentLocation = GameBoard.Chicfila; break;
@@ -116,7 +116,7 @@ public class Player {
 	}
 
 	// sets a players currentLocation
-	public void setCurrentLoc(Property currentLocation) {
+	public void setCurrentLoc(BoardSpace currentLocation) {
 		this.currentLocation = currentLocation;
 	}
 
@@ -158,12 +158,12 @@ public class Player {
 	
 	// PROPERTY CONTROL ----------------------------------
 	// adds a property to the player
-	public void addProperty(Property property) {
+	public void addProperty(BoardSpace property) {
 		ownedProperties.add(property);
 	}
 
 	// returns players properties
-	public ArrayList<Property> getProperties() {
+	public ArrayList<BoardSpace> getProperties() {
 		return ownedProperties;
 	}
 	

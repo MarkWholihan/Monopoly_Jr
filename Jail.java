@@ -7,7 +7,7 @@ Due date: 10-10-2021 by 11:59pm
 public class Jail extends BoardSpace {
 	
 	public Jail() {
-		super("Jail");
+		super("Jail", 0, "", null);
 	}	
 	
 	public void OnLanding(Player currentPlayer) {
