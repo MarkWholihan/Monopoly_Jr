@@ -33,17 +33,18 @@ public class ChanceCard {
 	
 	public String PropColorPicker() {
 		// list of property colors to randomly chose from
-		String[] color = new String[6];
-		color[0] = "cyan";
-		color[1] = "orange";
+		String[] color = new String[7];
+		color[0] = "brown";
+		color[1] = "cyan";
 		color[2] = "pink";
-		color[3] = "red";
-		color[4] = "brown";
-		color[5] = "green";
-		color[6] = "yellow";
+		color[3] = "orange";
+		color[4] = "red";
+		color[5] = "yellow";
+		color[6] = "green";
+		color[7] = "blue";
 		
-		int i = (int)(Math.random()*6);
-		propColor = color[i];
+		int i = (int)(Math.random()*8);
+		propColor = color[i-1];
 		return propColor;
 	}
 	
@@ -63,8 +64,8 @@ public class ChanceCard {
 		player[2] = "Little Scottie";
 		player[3] = "Little Hazel";
 		
-		int i = (int)(Math.random()*3);
-		playerSpec = player[i];
+		int i = (int)(Math.random()*4);
+		playerSpec = player[i-1];
 		return playerSpec;
 	}
 	
@@ -78,8 +79,8 @@ public class ChanceCard {
 // CHANCE CARD DECK ARRAY ---------------------------------------
 	
 	public static ChanceCard getChance() {
-		int i = (int)(Math.random()*19);
-		return deck.get(i);
+		int i = (int)(Math.random()*21);
+		return deck.get(i-1);
 	}
 	
 	public void ChanceArray(Player currentPlayer, Property currentProperty) {
@@ -94,10 +95,7 @@ public class ChanceCard {
 		ChanceCard advanceApple = new ChanceCard("Advance", "Advance to"
 				+ "Apple Store.");
 		/* int distance;
-		distance = (currentPlayer.getLoc()-23);
-		if (distance < 0) {
-			distance = distance*(-1);
-		}
+		distance = 23-currentPlayer.getLoc();
 		Player.move(distance,currentPlayer)); */
 		
 		// advance 5 spaces
@@ -123,17 +121,18 @@ public class ChanceCard {
 		ChanceCard advanceGo = new ChanceCard("Advance",
 				"Advance to GO. Collect $2.");
 		/* int distance;
-		distance = (currentPlayer.getLoc()-24); */
+		distance = 24-currentPlayer.getLoc(); */
 		
 		// advance to Frog Island Park
 		ChanceCard advancePark = new ChanceCard("Advance", "Advance "
 				+ "to Frog Island Park. If no one owns it, get it for "
 				+ "FREE! Otherwise, PAY rent to the owner.");
 		/* int distance;
-		 * distance = currentPlayer.getLoc()-10
-		 * if (distance < 0) {
-		 * 	distance = distance*(-1);
-		 * }
+		 * if (currentPlayer.getLoc()<10) {
+				distance = 10-currentPlayer.getLoc();
+			} else {
+				distance = (23-currentPlayer.getLoc())+10;
+			}
 		 * Player.move(distance,currentPlayer);
 		 */
 		
@@ -162,7 +161,10 @@ public class ChanceCard {
 				+ "and buy it. If all are owned, buy the closest property"
 				+ "not owned by you from the owner! Owner MUST "
 				+ "sell.");
+		
 				
+		deck.add(advanceColor);
+		deck.add(advanceColor);
 		deck.add(advanceColor);
 		deck.add(advanceColor);
 		deck.add(advanceColor);
