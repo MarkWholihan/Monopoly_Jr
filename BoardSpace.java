@@ -10,8 +10,8 @@ public class BoardSpace {
 	private String name;
 	private int cost;
 	private String color;
-	private boolean owned;
-	private Player owner;
+	public boolean owned;
+	public Player owner;
 
 	public BoardSpace(String pName, int pCost, String pColor, Boolean pOwned) {
 		name = pName;

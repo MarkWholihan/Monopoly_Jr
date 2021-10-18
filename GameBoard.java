@@ -31,7 +31,7 @@ public class GameBoard {
 	public static BoardSpace Starbucks = new BoardSpace("Starbucks", 5, "Blue", false);
 	public static BoardSpace AppleStore = new BoardSpace("Apple Store", 5, "Blue", false);
 	
-	private ArrayList<BoardSpace> board;
+	public static ArrayList<BoardSpace> board;
 	
 	// establish array for game board
 	public GameBoard() {

@@ -91,122 +91,52 @@ public class ChanceCard {
 		ChanceCard advanceColor = new ChanceCard("FreeProp", "Advance to"
 				+ "a " +PropColorPicker()+ " space. If one is unowned, get it for "
 				+ "FREE! If none is unowned, advance to the closest " +getPropColor()
-				+ "space and PAY rent to the owner.");
+				+ "space and PAY rent to the owner.", ChanceFx.advanceColor());
 		
 		// advance to apple
 		ChanceCard advanceApple = new ChanceCard("Advance", "Advance to"
-				+ "Apple Store.");
-		/* int distance;
-		distance = 23-currentPlayer.getLoc();
-		Player.move(distance,currentPlayer)); */
+				+ "Apple Store.", ChanceFx.advanceApple(currentPlayer));
 		
 		// advance 5 spaces
 		ChanceCard advanceFive = new ChanceCard("Advance", "Move five "
-				+ "spaces ahead.");
-		// Player.move(5,currentPlayer);
+				+ "spaces ahead.", ChanceFx.advanceFive(currentPlayer));
 		
 		// advance OR take another chance
 		ChanceCard advanceOrChance = new ChanceCard("AdvanceOrChance",
-				"Move forward 1 space (A) OR take another Chance card (B).");
-		/* String answer = "deeznuts";
-	    	while (!answer.equalsIgnoreCase("A") && !answer.equalsIgnoreCase("B")) {
-		    	answer = kb.next();
-				
-				if (answer.equalsIgnoreCase("A")) {
-					Player.move(1,currentPlayer);
-				} else if (answer.equalsIgnoreCase("B") {
-					ChanceCard.getChance();
-				}
-			} */
+				"Move forward 1 space (A) OR take another Chance card (B).",
+				ChanceFx.advanceOrChance(currentPlayer));
 		
 		// advance to GO
 		ChanceCard advanceGo = new ChanceCard("Advance",
-				"Advance to GO. Collect $2.");
-		/* int distance;
-		distance = 24-currentPlayer.getLoc(); */
+				"Advance to GO. Collect $2.", ChanceFx.advanceGo(currentPlayer));
 		
 		// advance to Frog Island Park
 		ChanceCard advancePark = new ChanceCard("Advance", "Advance "
 				+ "to Frog Island Park. If no one owns it, get it for "
-				+ "FREE! Otherwise, PAY rent to the owner.");
-		/* int distance;
-		 * if (currentPlayer.getLoc()<10) {
-				distance = 10-currentPlayer.getLoc();
-			} else {
-				distance = (23-currentPlayer.getLoc())+10;
-			}
-		 * Player.move(distance,currentPlayer);
-		 */
+				+ "FREE! Otherwise, PAY rent to the owner.",
+				ChanceFx.advancePark(currentPlayer));
 		
 		// get out of jail free card
 		ChanceCard getOutOfJailCard = new ChanceCard("GetOutOfJailFree",
-				"Get out of jail free. Keep this card until you need it.");
-		
-		// NEED TO CONNECT TO CARD SO IT ACTUALLY AFFECTS YOU WHEN TAKEN???
-		currentPlayer.cards.add("getOutOfJailCard");
+				"Get out of jail free. Keep this card until you need it.",
+				ChanceFx.getOutOfJailFree(currentPlayer));
 		
 		// gain $2
 		ChanceCard gainHomework = new ChanceCard("Gain", "You did all your homework! "
-				+ "Collect $2 from the Bank.");
+				+ "Collect $2 from the Bank.", ChanceFx.gain(currentPlayer));
 		ChanceCard gainBirthday = new ChanceCard("Gain", "It’s your birthday! "
-				+ "Collect $2 from the Bank. Happy Birthday!");
-		// currentPlayer.addCash(2);
+				+ "Collect $2 from the Bank. Happy Birthday!", ChanceFx.gain(currentPlayer));
 		
 		// lose $2
 		ChanceCard lose = new ChanceCard("Lose", "You ate too many sweets! "
-				+ "Pay $2 to the Bank.");
-		// currentPlayer.subtractCash(2);
+				+ "Pay $2 to the Bank.", ChanceFx.lose(currentPlayer));
 		
 		// player-specific cards
 		ChanceCard playerSpec = new ChanceCard("PlayerSpec", PlayerPicker()+
 				": On your next turn, sail forward to any unowned property,"
 				+ "and buy it. If all are owned, buy the closest property"
 				+ "not owned by you from the owner! Owner MUST "
-				+ "sell.");
-		/* int distance;
-			int numOwned=0;
-			int checkLoc;
-			for (int i=0; i<=23; i++) {
-				// scroll thru board from current location onward, restart count if over 23
-				checkLoc = boardArray.get((currentPlayer.getLoc()+i));
-				if (checkLoc > 23) {
-					checkLoc -= 23;
-				}
-				
-			
-				// count num of owned spaces, break loop if all spaces owned
-				if (numOwned < 16) {
-					if (boardArray.get(checkLoc).owned = false) {
-						if (currentPlayer.getLoc() < checkLoc) {
-							distance = checkLoc-currentPlayer.getLoc();
-						} else {
-							distance = 23-currentPlayer.getLoc();
-					} else {
-						numOwned++;
-					}
-				} else {
-					break;
-				}
-			
-			
-			
-			// all spaces owned, go to nearest not-yours property
-			for (int i=0; i<=23;i++) {
-				// scroll thru board from current location onward, restart count if over 23
-				checkLoc = boardArray.get((currentPlayer.getLoc()+i));
-				if (checkLoc > 23) {
-					checkLoc -= 23;
-				}
-			
-				// go to nearest not-yours owned property
-				if (boardArray.get(checkLoc).owner != currentPlayer && boardArray.get(checkLoc).owner != Player.banker) {
-					if (currentPlayer.getLoc() < checkLoc) {
-							distance = checkLoc-currentPlayer.getLoc();
-						} else {
-							distance = 23-currentPlayer.getLoc();
-				}
-			}
-		 */
+				+ "sell.", ChanceFx.playerSpec(currentPlayer));
 		
 				
 		deck.add(advanceColor);
