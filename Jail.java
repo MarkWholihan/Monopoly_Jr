@@ -15,9 +15,13 @@ public class Jail extends BoardSpace {
 		if (currentPlayer.inJail = true) {
 			if (currentPlayer.getOutOfJailCard = true) {
 				currentPlayer.useCard("getOutOfJailCard");
+			
+			// pay bail if no GTFO card
+			} else {
+				currentPlayer.payPlayer(Player.banker,1);
+				currentPlayer.inJail = false;
 			}
 		}
-		
-		
 	}
+	
 }

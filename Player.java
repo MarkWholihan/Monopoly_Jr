@@ -13,8 +13,10 @@ public class Player {
 	private Property currentLocation;
 	public Boolean inJail;
 	public Boolean getOutOfJailCard;
+	public Boolean getAnyProp;
 	public ArrayList<String> cards;
 	public ArrayList<Property> ownedProperties;
+	
 	public static final int SPACE_TOTAL = 23;
 	public static Player playerOne = new Player("Toy Boat");
 	public static Player playerTwo = new Player("Toy Car");
@@ -25,7 +27,7 @@ public class Player {
 	// constructs an object of player
 	public Player(String name) {
 		this.name = name;
-		cash = 116;
+		cash = 16;
 		location = 0;
 		currentLocation = getCurrentLoc();
 		inJail = false;
