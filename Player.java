@@ -8,7 +8,7 @@ import java.util.*;
 
 public class Player {
 	private String name;
-	private int cash;
+	public int cash;
 	private int location;
 	private BoardSpace currentLocation;
 	public Boolean inJail;
@@ -47,8 +47,8 @@ public class Player {
 
 	// returns information about this player as a string
 	public String toString() {
-		String result = ("Name: " + name + "\nCash: " + cash + "\nLocation: " + location +  "\nLocation "
-				+ currentLocation + "\nHas get out of jail free card? "
+		String result = ("Name: " + name + "\nCash: " + cash + "\nLocation: " + location +  "\nLocation name: "
+				+ currentLocation.getLocName() + "\nHas get out of jail free card? "
 				+ getOutOfJailCard + "\nProperties owned: "
 				+ ownedProperties);
 		return result;
@@ -140,26 +140,35 @@ public class Player {
 
 	// adds cash to the player
 	public void addCash(int cash) {
-		cash += this.cash;
+		this.cash += cash;
 	}
 
 	// subtracts cash from the player
-	public void subtractCash(int cash) {
-		cash -= this.cash;
+	public int subtractCash(int lessCash, Player currentPlayer) {
+		cash = (cash - lessCash);
+		getCash();
 		if (playerOne.cash <= 0 || playerTwo.cash <= 0 || playerThree.cash <= 0 || playerFour.cash <= 0) {
 			System.out.println("Not enough cash, the game will now end. The player with most cash wins!\n");
 			endGame();
 		}
+		return cash;
 	}
 	
+	// pays another player
+	public void payPlayer(Player payer, Player payee, int amount) {
+		payer.subtractCash(amount, payer);
+		payee.addCash(amount);
+	}
+
 	// ends the game
 	public void endGame() {
-		Player mostCash = max(playerOne.cash, playerTwo.cash, playerThree.cash, playerFour.cash);
+		Player mostCash = max(playerOne.getCash(), playerTwo.getCash(), playerThree.getCash(), playerFour.getCash());
 		System.out.println(mostCash.name + " is the Winner because they had the most cash when the game ended\n" +
-		playerOne.name + " had $" + playerOne.cash + "\n" + playerTwo.name + " had $" + playerTwo.cash +
-		"\n" + playerThree.name + " had $" + playerThree.cash + "\n" + playerFour.name + " had $" + playerFour.cash);
+		playerOne.name + " had $" + playerOne.getCash() + "\n" + playerTwo.name + " had $" + playerTwo.getCash() +
+		"\n" + playerThree.name + " had $" + playerThree.getCash() + "\n" + playerFour.name + " had $" + playerFour.getCash());
 	}
 	
+	// returns winner with most cash
 	public Player max(int one, int two, int three, int four) {
 		Player winner = banker;
 		
@@ -184,21 +193,11 @@ public class Player {
 		
 	}
 	
-	
-	
 	// tie game
 	public static void tieGame() {
 		String tied = "";
 		
 	}
-
-	// pays another player
-	public void payPlayer(Player payee, int amount) {
-		subtractCash(amount);
-		payee.addCash(amount);
-	}
-
-
 	
 	// PROPERTY CONTROL ----------------------------------
 	// adds a property to the player

@@ -90,7 +90,7 @@ public class ChanceFx {
 	
 	// lose $2 ---------------------------------------------------------------
 	public static ChanceFx lose(Player currentPlayer) {
-		currentPlayer.subtractCash(2);
+		currentPlayer.subtractCash(2, currentPlayer);
 		return lose(currentPlayer);
 	}
 	

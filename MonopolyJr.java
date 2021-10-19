@@ -74,7 +74,7 @@ public class MonopolyJr {
 			rules();
 		}
 		
-		System.out.print("\nWould you like to see the starting players information? \nEnter Y for Yes or N for No: ");
+		/*System.out.print("\nWould you like to see the starting players information? \nEnter Y for Yes or N for No: ");
 		entry = kb.next();
 
 		if (entry.trim().toUpperCase().contains("Y")) {
@@ -82,7 +82,7 @@ public class MonopolyJr {
 
 		System.out.println(Player.playerOne + " \n\n" + Player.playerTwo + " \n\n" + Player.playerThree + " \n\n" + Player.playerFour);
 		System.out.println();
-		}
+		}*/
 	}
 
 	public static void rules() {

@@ -55,7 +55,7 @@ public class BoardSpace {
 		//if class is a property, update the state of the property (owned/unowned, and owner).
 		if (currentSpace.owned == true) {
 			System.out.println();
-			currentPlayer.payPlayer(currentSpace.owner, currentSpace.cost);
+			currentPlayer.payPlayer(currentPlayer, currentSpace.owner, currentSpace.cost);
 			System.out.println(currentPlayer.getName() + " paid " + currentSpace.owner.getName() + " $" + currentSpace.cost + " for rent");
 		} else if (currentSpace.owned == false) {
 			System.out.println();
@@ -64,7 +64,7 @@ public class BoardSpace {
 			currentSpace.owner = currentPlayer;
 			System.out.println(currentSpace.name + " purchased for $" + currentSpace.cost + " by " + currentPlayer.getName());
 			System.out.println(currentSpace.name + " added to " + currentPlayer.getName() + "'s properties");
-			System.out.println(currentPlayer.getName() + " now has $" + currentPlayer.getCash());
+			//System.out.println(currentPlayer.getName() + " now has $" + currentPlayer.cash);
 		}
 	}
 }
