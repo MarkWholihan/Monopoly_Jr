@@ -1,7 +1,7 @@
 /*  Programmers: Mark Wholihan & Alder Yang
 Course: COSC 211, Fall 2021
 Project#: 1 Monopoly Jr
-Due date: 10-10-2021 by 11:59pm
+Due date: 10-17-2021 by 11:59pm
  */
 
 import java.util.ArrayList;
@@ -9,11 +9,11 @@ import java.util.ArrayList;
 public class GameBoard {
 	
 	// import board spaces as objects
-	public static BoardSpace Go = new Go();
-    public static BoardSpace Jail = new Jail();
-    public static BoardSpace GoToJail = new GoToJail();
-    public static BoardSpace Chance = new Chance();
-    public static BoardSpace FreeParking = new FreeParking();
+	public static BoardSpace Go = new Go("Go", 0, "", true);
+    public static BoardSpace Jail = new Jail("Jail", 0, "", true);
+    public static BoardSpace GoToJail = new GoToJail("Go To Jail", 0, "", true);
+    public static BoardSpace Chance = new Chance("Chance", 0, "", true);
+    public static BoardSpace FreeParking = new FreeParking("Free Parking", 0, true);
 	public static BoardSpace Chicfila = new BoardSpace("Chic-fil-a", 1, "Brown", false);
 	public static BoardSpace LittleCaesars = new BoardSpace("Little Caesar's", 1, "Brown", false);
 	public static BoardSpace DairyQueen = new BoardSpace("Dairy Queen", 2, "Cyan", false);

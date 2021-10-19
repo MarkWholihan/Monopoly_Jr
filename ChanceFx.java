@@ -1,3 +1,9 @@
+/*  Programmers: Mark Wholihan & Alder Yang
+Course: COSC 211, Fall 2021
+Project#: 1 Monopoly Jr
+Due date: 10-17-2021 by 11:59pm
+ */
+
 import java.util.Scanner;
 
 public class ChanceFx {
@@ -103,7 +109,7 @@ public class ChanceFx {
 		
 			// count num of owned spaces, break loop if all spaces owned
 			if (numOwned < 16) {
-				if (GameBoard.board.get(checkLoc).owned = false) {
+				if (GameBoard.board.get(checkLoc).owned == false) {
 					if (currentPlayer.getLoc() < checkLoc) {
 						distance = checkLoc-currentPlayer.getLoc();
 					} else {

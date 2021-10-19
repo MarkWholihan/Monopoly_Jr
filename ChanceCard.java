@@ -1,6 +1,10 @@
-import java.util.ArrayList;
-import java.util.Random;
-import java.util.Scanner;
+/*  Programmers: Mark Wholihan & Alder Yang
+Course: COSC 211, Fall 2021
+Project#: 1 Monopoly Jr
+Due date: 10-17-2021 by 11:59pm
+ */
+
+import java.util.*;
 
 public class ChanceCard {
 	
@@ -124,7 +128,7 @@ public class ChanceCard {
 		// gain $2
 		ChanceCard gainHomework = new ChanceCard("Gain", "You did all your homework! "
 				+ "Collect $2 from the Bank.", ChanceFx.gain(currentPlayer));
-		ChanceCard gainBirthday = new ChanceCard("Gain", "It’s your birthday! "
+		ChanceCard gainBirthday = new ChanceCard("Gain", "Itï¿½s your birthday! "
 				+ "Collect $2 from the Bank. Happy Birthday!", ChanceFx.gain(currentPlayer));
 		
 		// lose $2

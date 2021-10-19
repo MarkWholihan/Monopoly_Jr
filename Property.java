@@ -1,10 +1,10 @@
-import java.util.*;
-
 /*  Programmers: Mark Wholihan & Alder Yang
 Course: COSC 211, Fall 2021
 Project#: 1 Monopoly Jr
-Due date: 10-10-2021 by 11:59pm
+Due date: 10-17-2021 by 11:59pm
  */
+
+import java.util.*;
 
 public class Property extends BoardSpace {
 
@@ -15,12 +15,12 @@ public class Property extends BoardSpace {
 	private boolean owned;
 	private Player owner;
 
-	public Property(String pName, int pCost, String pColor) {
-		super("Property");
+	public Property(String pName, int pCost, String pColor, Boolean pOwned) {
+		super("Property", pCost, pColor, pOwned);
 		name = pName;
 		cost = pCost;
 		color = pColor;
-		owned = false;
+		owned = pOwned;
 		owner = Player.banker;
 	}
 
