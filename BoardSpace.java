@@ -19,6 +19,9 @@ public class BoardSpace {
 		color = pColor;
 		owned = pOwned;
 		owner = Player.banker;
+		if (color == "") {
+			owned = true;
+		}
 	}
 
 	// returns information about this player as a string
