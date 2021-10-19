@@ -80,6 +80,6 @@ public class GameBoard {
 	}
 	
 	public ArrayList<BoardSpace> getBoard() {
-	return board;
+		return board;
 	}
 }

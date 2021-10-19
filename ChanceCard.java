@@ -84,9 +84,9 @@ public class ChanceCard {
 	
 // CHANCE CARD DECK ARRAY ---------------------------------------
 	
-	public static ChanceCard getChance() {
+	public static void getChance() {
 		int i = (int)(Math.random()*21);
-		return deck.get(i-1);
+		deck.get(i-1);
 	}
 	
 	public void ChanceArray(Player currentPlayer, BoardSpace currentSpace) {

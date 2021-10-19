@@ -48,22 +48,38 @@ public class BoardSpace {
 		return owner;
 	}
 
-	// do things when player lands on this space
+	
+	// do things when player lands on this a BoardSpace
 	public static void OnLanding(Player currentPlayer, BoardSpace currentSpace) {
-		//update the player’s cash balance,
-		//update the player’s position on the board, and
-		//if class is a property, update the state of the property (owned/unowned, and owner).
-		if (currentSpace.owned == true) {
-			System.out.println();
-			currentPlayer.payPlayer(currentSpace.owner, currentSpace.cost);
-			System.out.println(currentPlayer.getName() + " paid " + currentSpace.owner.getName() + " $" + currentSpace.cost + " for rent");
-		} else if (currentSpace.owned == false) {
-			System.out.println();
-			currentPlayer.addProperty(currentSpace);
-			currentSpace.owned = true;
-			currentSpace.owner = currentPlayer;
-			System.out.println(currentSpace.name + " purchased for $" + currentSpace.cost + " by " + currentPlayer.getName());
-			System.out.println(currentSpace.name + " added to " + currentPlayer.getName() + "'s properties");
+		// check what kind of space
+		// if special, do special OnLanding in their respective subclasses of BoardSpace
+		if (currentSpace.name.equals("Go") && currentSpace.name.equals("Jail")
+				&& currentSpace.name.equals("Go To Jail")
+				&& currentSpace.name.equals("Chance")
+				&& currentSpace.name.equals("Free Parking")) {
+			currentPlayer.getCurrentLoc();
+			
+		// if property, do default OnLanding
+		} else {
+			// if property, check if owned
+			// if owned by other player, pay rent
+			if (currentSpace.owned == true && !currentSpace.owner.equals(currentPlayer.getName())) {
+				System.out.println();
+				currentPlayer.payPlayer(currentSpace.owner, currentSpace.cost);
+				System.out.println(currentPlayer.getName() + " paid "
+						+ currentSpace.owner.getName() + " $" + currentSpace.cost + " for rent");
+			
+			// if not owned by anyone, buy
+			} else if (currentSpace.owned == false) {
+				System.out.println();
+				currentPlayer.addProperty(currentSpace);
+				currentSpace.owned = true;
+				currentSpace.owner = currentPlayer;
+				System.out.println(currentSpace.name + " purchased for $" + currentSpace.cost
+						+ " by " + currentPlayer.getName());
+				System.out.println(currentSpace.name + " added to "
+						+ currentPlayer.getName() + "'s properties");
+			}
 		}
 	}
 }
