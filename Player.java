@@ -146,6 +146,50 @@ public class Player {
 	// subtracts cash from the player
 	public void subtractCash(int cash) {
 		cash -= this.cash;
+		if (playerOne.cash <= 0 || playerTwo.cash <= 0 || playerThree.cash <= 0 || playerFour.cash <= 0) {
+			System.out.println("Not enough cash, the game will now end. The player with most cash wins!\n");
+			endGame();
+		}
+	}
+	
+	// ends the game
+	public void endGame() {
+		Player mostCash = max(playerOne.cash, playerTwo.cash, playerThree.cash, playerFour.cash);
+		System.out.println(mostCash.name + " is the Winner because they had the most cash when the game ended\n" +
+		playerOne.name + " had $" + playerOne.cash + "\n" + playerTwo.name + " had $" + playerTwo.cash +
+		"\n" + playerThree.name + " had $" + playerThree.cash + "\n" + playerFour.name + " had $" + playerFour.cash);
+	}
+	
+	public Player max(int one, int two, int three, int four) {
+		Player winner = banker;
+		
+		if (one > two && one > three && one >four) {
+			winner = playerOne;
+			return winner;
+		} else if (two > three && two > one && two > four) {
+			winner = playerTwo;
+			return winner;
+		} else if (three > one && three > two && three > four) {
+			winner = playerThree;
+			return winner;
+		} else if (four > one && four > two && four > three) {
+			winner = playerFour;
+			return winner;
+		} else {
+			System.out.println("Tie Game!");
+			
+		}
+		
+		return winner;
+		
+	}
+	
+	
+	
+	// tie game
+	public static void tieGame() {
+		String tied = "";
+		
 	}
 
 	// pays another player

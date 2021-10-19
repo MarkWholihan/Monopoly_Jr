@@ -64,6 +64,7 @@ public class BoardSpace {
 			currentSpace.owner = currentPlayer;
 			System.out.println(currentSpace.name + " purchased for $" + currentSpace.cost + " by " + currentPlayer.getName());
 			System.out.println(currentSpace.name + " added to " + currentPlayer.getName() + "'s properties");
+			System.out.println(currentPlayer.getName() + " now has $" + currentPlayer.getCash());
 		}
 	}
 }
