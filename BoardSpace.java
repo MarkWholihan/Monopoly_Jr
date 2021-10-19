@@ -17,11 +17,12 @@ public class BoardSpace {
 		name = pName;
 		cost = pCost;
 		color = pColor;
-		owned = pOwned;
-		owner = Player.banker;
 		if (color == "") {
 			owned = true;
+		} else {
+			owned = false;
 		}
+		owner = Player.banker;
 	}
 
 	// returns information about this player as a string
